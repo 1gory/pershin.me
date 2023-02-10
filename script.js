@@ -12,11 +12,11 @@ $(document).ready(function () {
       }
       card.find('.card-img-top').attr('src', './img/projects/' + project.img);
       card.appendTo('.cards');
-      const technologiesP = card.find('.technologies');
+      const technologiesText = card.find('.technologies');
 
       project.technologies.forEach((technology, i) => {
         const t = '<span class="badge bg-light text-dark">' + technology + '</span>';
-        $(t).appendTo(technologiesP);
+        $(t).appendTo(technologiesText);
       });
     });
   });
