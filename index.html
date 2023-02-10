@@ -1,21 +1,22 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-  <meta charset="utf-8"/>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+  <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"></script>
+  <script src="./script.js"></script>
+
   <title>Першин Игорь | pershin.me</title>
-  <!--[if IE]>
-  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
-  <style>
-    * {
-      font-family: "Roboto", sans-serif;
-    }
-    article, aside, details, figcaption, figure, footer, header,
-    hgroup, menu, nav, section {
-      display: block;
-    }
-  </style>
-  <link rel="stylesheet" href="styles.css">
+  
   <!-- Yandex.Metrika counter -->
   <script type="text/javascript" >
     (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
@@ -25,56 +26,81 @@
     ym(65479363, "init", {
       clickmap:true,
       trackLinks:true,
-      accurateTrackBounce:true,
-      webvisor:true
+      accurateTrackBounce:true
     });
   </script>
   <noscript><div><img src="https://mc.yandex.ru/watch/65479363" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
   <!-- /Yandex.Metrika counter -->
 </head>
 <body>
-<div class="header-wrapper">
-  <h1>Першин Игорь</h1>
-  <img src="ig.gif" alt="ig" class="header-image" />
+
+<div class="container p-5">
+  <div class="row">
+    <h1>Igor Pershin</h1>
+    <p class="pt-3">
+      I use popular web technologies and frameworks:
+      <span class="badge bg-light text-dark">php</span>,
+      (<span class="badge bg-light text-dark">symfony</span>,
+      <span class="badge bg-light text-dark">cakephp</span>),
+      <span class="badge bg-light text-dark">node.js</span>,
+      <span class="badge bg-light text-dark">react</span>,
+      <span class="badge bg-light text-dark">PostgreSQL</span>,
+      <span class="badge bg-light text-dark">MySQL</span>,
+      <span class="badge bg-light text-dark">mongoDB</span>,
+      etc
+    </p>
+    <p></p>
+  </div>
+
+  <div class="row pt-4 cards">
+    <h2>Some projects</h2>
+  </div>
+
+  <div class="row pb-5 pt-5">
+    <h2 class="pb-3">Contacts</h2>
+
+    <div class="col-2 col-md-1">
+      <a href="https://t.me/igoryp" target="_blank">
+        <img src="./img/contacts/telegram.png" alt="..." class="w-100"/>
+      </a>
+    </div>
+    <div class="col-2 col-md-1">
+      <a href="https://github.com/1gory" target="_blank">
+        <img src="./img/contacts/github.png" alt="..." class="w-100"/>
+      </a>
+    </div>
+    <div class="col-2 col-md-1">
+      <a href="https://www.linkedin.com/in/igor-pershin-28a159100/" target="_blank">
+        <img src="./img/contacts/linkedin.png" alt="..." class="w-100"/>
+      </a>
+    </div>
+    <div class="col-2 col-md-1">
+      <a href="https://www.instagram.com/igory_p/" target="_blank">
+        <img src="./img/contacts/instagram.png" alt="..." class="w-100"/>
+      </a>
+    </div>
+    <div class="col-2 col-md-1">
+      <a href="mailto:igor.pershin.me@gmail.com" target="_blank">
+        <img src="./img/contacts/gmail.png" alt="..." class="w-100"/>
+      </a>
+    </div>
+  </div>
 </div>
-<h2>Сайты и проекты</h2>
-<ul>
-  <li><a href="https://lucky-promo.ru" target="_blank">lucky-promo.ru</a> - Агрегатор акций и розыгрышей</li>
-  <li><a href="https://mosgosprint.ru" target="_blank">mosgosprint.ru</a> - Оптовое производство одежды</li>
-  <li><a href="https://casewood.ru" target="_blank">casewood.ru</a> - Деревянный чехлы для iPhone с гравировкой</li>
-  <li><a href="https://prosilence.ru" target="_blank">prosilence.ru</a> - Автошумоизоляция</li>
-  <li><a href="https://ivaleshi.ru" target="_blank">ivaleshi.ru</a> - Дизайнерские валенки</li>
-  <li><a href="https://vinokurov-tours.ru" target="_blank">vinokurov-tours.ru</a> - Турагенство</li>
-  <li><a href="https://case.souvenirstudio.ru" target="_blank">case.souvenirstudio.ru</a> - Оптовое производство чехлов для телефона</li>
-  <li><a href="https://donishki.ru" target="_blank">donishki.ru</a> - Донышки для плетения корзин</li>
-  <li><a href="https://cramler.ru" target="_blank">cramler.ru</a> - Сайтовая аналитика</li>
-  <li><a href="https://upyourbody.ru" target="_blank">upyourbody.ru</a> - Фитнес и тренеровки</li>
-  <li><a href="https://get-profi.ru" target="_blank">get-profi.ru</a> - Удаленный подбор персоонала</li>
-  <li><a href="https://clonesite.ru" target="_blank">clonesite.ru</a> - Сервис для скачивания файлов сайта</li>
-<!--  <li><a href="https://printstores.ru" target="_blank">printstores.ru</a> - Оптовое производство одежды</li>-->
-  <li><a href="https://nagravirovku.pershin.me/" target="_blank">nagravirovku.ru</a> - Лазерная гравировка и резка</li>
-  <li><a href="http://spirtoll.ru" target="_blank">spirtoll.ru</a> - Антисептик</li>
-</ul>
-<h2>Боты</h2>
-<ul>
-  <li>Телеграм-бот для Московской городской службы дезинфекции</li>
-</ul>
-<h2>Библиотеки</h2>
-<ul>
-  <li>https://github.com/1gory/amoconnector</li>
-</ul>
-<h2>Соцсети</h2>
-<ul>
-  <li><a href="https://www.youtube.com/channel/UCwTFXydaPix2kqjcyZiWTCQ" target="_blank">Youtube</a></li>
-  <li>Инстаграм <a href="https://www.instagram.com/igory_p/" target="_blank">instagram.com/igory_p</a></li>
-</ul>
-<h2>Интеграция AmoCRM</h2>
-<ul>
-  <li>ID партнёра: 23657647</li>
-</ul>
-<br>
-<ul>
-  <li><a href="mailto:pershin_igor@mail.ru">Написать</a></li>
-</ul>
+
+<div class="col-12 col-md-4 pt-3 pb-3 d-none card-template">
+  <div class="card">
+    <img src="" class="card-img-top border-bottom" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">Content.</p>
+
+      <p class="technologies"></p>
+
+      <a href="#" target="_blank" class="btn btn-primary project-link">Link</a>
+      <a href="#" target="_blank" class="btn btn-success project-github">GitHub</a>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
