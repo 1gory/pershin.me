@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+<svg width="800px" height="800px" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="15" cy="15" r="15" fill="url(#paint0_linear_87_7225)"/>
+    <path d="M21.9866 9.2088C22.1112 8.40332 21.3454 7.76755 20.6292 8.082L6.36482 14.3448C5.85123 14.5703 5.8888 15.3483 6.42147 15.5179L9.3631 16.4547C9.9246 16.6335 10.5325 16.541 11.0228 16.2023L17.655 11.6203C17.855 11.4821 18.073 11.7665 17.9021 11.9426L13.1281 16.8646C12.665 17.3421 12.7569 18.1512 13.314 18.5005L18.659 21.8523C19.2585 22.2282 20.0297 21.8506 20.1418 21.1261L21.9866 9.2088Z" fill="white"/>
+    <defs>
+        <linearGradient id="paint0_linear_87_7225" x1="15" y1="0" x2="15" y2="30" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#37BBFE"/>
+            <stop offset="1" stop-color="#007DBB"/>
+        </linearGradient>
+    </defs>
+</svg>
