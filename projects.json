@@ -8,36 +8,36 @@
       "React",
       "PostgreSQL"
     ],
-    "description": "A marketplace with small tasks (clicks on links, video views) for freelancers",
+    "description": "A marketplace for small tasks (clicks on links, video views) for freelancers",
     "descriptionRu": "Биржа микрозадач"
   },
   {
     "name": "Lucky Promo",
-    "url": "https://lucky-promo.ru/",
+    "url": "https://lucky-promo.ru",
     "img": "lp.jpg",
     "technologies": [
       "node.js",
       "React",
       "PostgreSQL"
     ],
-    "description": "An aggregator of promotions, contests, sweepstakes and quizzes.",
+    "description": "An aggregator of promotions, contests, sweepstakes and quizzes",
     "descriptionRu": "Аггрегатор промоакций, конкурсов, розыгрышей и викторин"
   },
   {
     "name": "Moscow Print Studio",
-    "url": "https://mosgosprint.ru/",
+    "url": "https://mosgosprint.ru",
     "img": "mosgosprint.jpg",
     "technologies": [
       "node.js",
       "React",
       "PostgreSQL"
     ],
-    "description": "The website of the Moscow Printing Studio. Contains a lot of pages for SEO promotion, an online order builder, an admin panel.",
+    "description": "The website of Moscow Printing Studio with SEO-optimized pages, an online order builder, and an admin panel",
     "descriptionRu": "Вебсайт Московской студии печати. Много страниц для SEO продвижения, онлнайн-конструктор заказа, администраторская панель"
   },
   {
     "name": "Casewood",
-    "url": "https://casewood.pershin.me/",
+    "url": "https://casewood.ipershin.me",
     "img": "casewood.jpg",
     "github": "https://github.com/1gory/case-shop",
     "technologies": [
@@ -45,23 +45,23 @@
       "React",
       "mongodb"
     ],
-    "description": "Online store and manufacture of wooden iPhone cases.",
+    "description": "Online stohre and manufacturing for wooden iPhone cases",
     "descriptionRu": "Интернет-магазин и производство деревянных чехлов на айфон."
   },
   {
     "name": "Prosilence",
-    "url": "https://prosilence.pershin.me/",
+    "url": "https://prosilence.ipershin.me",
     "img": "prosilence.jpg",
     "github": "https://github.com/1gory/prosilence/",
     "technologies": [
       "React"
     ],
-    "description": "Website for a company that installs soundproofing on cars",
+    "description": "Website for a company that installs car soundproofing",
     "descriptionRu": "Веб сайт компании устанавливающей шумоизоляции на автомобили."
   },
   {
     "name": "Donishki",
-    "url": "https://donishki.ru/",
+    "url": "https://donishki.ru",
     "img": "donishki.jpg",
     "github": "https://github.com/casplase1/donishki",
     "technologies": [
@@ -69,65 +69,65 @@
       "React",
       "mongodb"
     ],
-    "description": "Online store of plywood products used for needlework.",
+    "description": "Online store of plywood products for needlework",
     "descriptionRu": "Онлайн магазин изделий из фанеры, использующихся для рукоделия."
   },
   {
     "name": "Vinokurov tours",
-    "url": "https://vinokurov-tours.pershin.me/",
+    "url": "https://vinokurov-tours.ipershin.me",
     "img": "vt.jpg",
     "github": "https://github.com/vinokurov-tours/vinokurov-tours",
     "technologies": [
       "React"
     ],
-    "description": "Travel agency website."
+    "description": "Travel agency website"
   },
   {
     "name": "UpYourBody",
-    "url": "https://upyourbody.ru/",
+    "url": "https://upyourbody.ru",
     "img": "upyourbody.jpg",
     "technologies": [
       "React"
     ],
-    "description": "Courses for improving health."
+    "description": "Health improvement courses"
   },
   {
     "name": "iValeshi",
-    "url": "https://ivaleshi.pershin.me/",
+    "url": "https://ivaleshi.ipershin.me",
     "img": "ivaleshi.jpg",
     "github": "https://github.com/1gory/ivaleshi",
     "technologies": [
       "React"
     ],
-    "description": "Online store and production of individual felt boots."
+    "description": "Online store and production of custom felt boots"
   },
   {
     "name": "Souvenirstudio",
-    "url": "https://sharik2687.tmweb.ru/",
+    "url": "https://sharik2687.tmweb.ru",
     "img": "souvenirstudio.jpg",
     "github": "https://github.com/1gory/quiz",
     "technologies": [
       "React"
     ],
-    "description": "Online constructor for calculating the cost of ordering phone cases."
+    "description": "Online calculator for phone case ordering costs"
   },
   {
     "name": "Spirtol",
-    "url": "https://spirtoll.pershin.me/",
+    "url": "https://spirtoll.ipershin.me",
     "img": "spirtol.jpg",
     "technologies": [
       "React"
     ],
-    "description": "Online store of the antiseptic company."
+    "description": "Online store for an antiseptic company"
   },
   {
     "name": "Nagravirovku",
-    "url": "https://nagravirovku.pershin.me/",
+    "url": "https://nagravirovku.ipershin.me",
     "img": "nagravirovku.jpg",
     "github": "https://github.com/casplase1/nagravirovku",
     "technologies": [
       "React"
     ],
-    "description": "Production company website."
+    "description": "Production company website"
   }
 ]
