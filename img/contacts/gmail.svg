@@ -1,5 +1,6 @@
 <svg width="800px" height="800px" viewBox="-50.06 -196.19 600.73 600.73" xmlns="http://www.w3.org/2000/svg">
     <rect x="-49.06" y="-195.19" width="598.73" height="598.73" fill="none" stroke="#CCCCCC" stroke-width="5" rx="90.1"/>
+    <rect x="-44.06" y="-190.19" width="588.73" height="588.73" fill="white" rx="85.1"/>
     <g clip-path="url(#clip0_1:194)" transform="translate(21, -68) scale(3.5)">
         <path d="M9.09091 100H30.303V48.4848L0 25.7576V90.9091C0 95.9394 4.07576 100 9.09091 100Z" fill="#4285F4"/>
         <path d="M103.03 100H124.242C129.273 100 133.333 95.9242 133.333 90.9091V25.7576L103.03 48.4848" fill="#34A853"/>
