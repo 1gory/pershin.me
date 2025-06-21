@@ -1,7 +1,7 @@
 [
   {
     "name": "Task.bz",
-    "img": "taskbz.jpg",
+    "img": "taskbz.webp",
     "github": "https://github.com/burse-dev/task.bz",
     "technologies": [
       "node.js",
@@ -14,7 +14,7 @@
   {
     "name": "Lucky Promo",
     "url": "https://lucky-promo.ru",
-    "img": "lp.jpg",
+    "img": "lp.webp",
     "technologies": [
       "node.js",
       "React",
@@ -26,7 +26,7 @@
   {
     "name": "Moscow Print Studio",
     "url": "https://mosgosprint.ru",
-    "img": "mosgosprint.jpg",
+    "img": "mosgosprint.webp",
     "technologies": [
       "node.js",
       "React",
@@ -38,7 +38,7 @@
   {
     "name": "Casewood",
     "url": "https://casewood.ipershin.me",
-    "img": "casewood.jpg",
+    "img": "casewood.webp",
     "github": "https://github.com/1gory/case-shop",
     "technologies": [
       "node.js",
@@ -51,7 +51,7 @@
   {
     "name": "Prosilence",
     "url": "https://prosilence.ipershin.me",
-    "img": "prosilence.jpg",
+    "img": "prosilence.webp",
     "github": "https://github.com/1gory/prosilence/",
     "technologies": [
       "React"
@@ -62,7 +62,7 @@
   {
     "name": "Donishki",
     "url": "https://donishki.ru",
-    "img": "donishki.jpg",
+    "img": "donishki.webp",
     "github": "https://github.com/casplase1/donishki",
     "technologies": [
       "node.js",
@@ -75,7 +75,7 @@
   {
     "name": "Vinokurov tours",
     "url": "https://vinokurov-tours.ipershin.me",
-    "img": "vt.jpg",
+    "img": "vt.webp",
     "github": "https://github.com/vinokurov-tours/vinokurov-tours",
     "technologies": [
       "React"
@@ -85,7 +85,7 @@
   {
     "name": "UpYourBody",
     "url": "https://upyourbody.ru",
-    "img": "upyourbody.jpg",
+    "img": "upyourbody.webp",
     "technologies": [
       "React"
     ],
@@ -94,7 +94,7 @@
   {
     "name": "iValeshi",
     "url": "https://ivaleshi.ipershin.me",
-    "img": "ivaleshi.jpg",
+    "img": "ivaleshi.webp",
     "github": "https://github.com/1gory/ivaleshi",
     "technologies": [
       "React"
@@ -104,7 +104,7 @@
   {
     "name": "Souvenirstudio",
     "url": "https://sharik2687.tmweb.ru",
-    "img": "souvenirstudio.jpg",
+    "img": "souvenirstudio.webp",
     "github": "https://github.com/1gory/quiz",
     "technologies": [
       "React"
@@ -114,7 +114,7 @@
   {
     "name": "Spirtol",
     "url": "https://spirtoll.ipershin.me",
-    "img": "spirtol.jpg",
+    "img": "spirtol.webp",
     "technologies": [
       "React"
     ],
@@ -123,7 +123,7 @@
   {
     "name": "Nagravirovku",
     "url": "https://nagravirovku.ipershin.me",
-    "img": "nagravirovku.jpg",
+    "img": "nagravirovku.webp",
     "github": "https://github.com/casplase1/nagravirovku",
     "technologies": [
       "React"
