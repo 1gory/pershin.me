@@ -74,3 +74,8 @@ h1, h2, h3 {
     outline: none !important;
     box-shadow: none !important;
 }
+
+.dancing-banana {
+    vertical-align: baseline;
+    width: 18px;
+}
