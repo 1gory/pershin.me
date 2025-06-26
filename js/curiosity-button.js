@@ -32,10 +32,9 @@
         curiosityMessage.style.transform = 'translateY(0)';
       }, 50);
 
-      // Аналитика
       if (typeof ym !== 'undefined' && typeof ym === 'function') {
         try {
-          ym(65479363, 'reachGoal', 'curiosity_button_clicked');
+          ym(65479363, 'reachGoal', 'curiosity_button_click');
           // console.log('Analytics event sent');
         } catch (error) {
           console.log('Analytics tracking failed:', error);
