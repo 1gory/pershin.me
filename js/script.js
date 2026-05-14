@@ -67,6 +67,9 @@ document.addEventListener('DOMContentLoaded', function() {
           projectLink.href = project.url;
           projectLink.setAttribute('data-goal', 'project_view_click');
           projectLink.setAttribute('data-goal-params', JSON.stringify({project_name: project.name}));
+          if (project.chromeStore) {
+            projectLink.textContent = 'Chrome Web Store';
+          }
         } else {
           projectLink.remove();
         }
@@ -92,6 +95,27 @@ document.addEventListener('DOMContentLoaded', function() {
           badge.textContent = technology;
           technologiesContainer.appendChild(badge);
         });
+
+        // Chrome Web Store stats
+        if (project.chromeStore) {
+          const stats = card.querySelector('.store-stats');
+          const cs = project.chromeStore;
+          const parts = [];
+          if (typeof cs.rating === 'number') {
+            const reviews = cs.ratingCount ? ` (${cs.ratingCount})` : '';
+            parts.push(`★ ${cs.rating.toFixed(1)}${reviews}`);
+          }
+          if (typeof cs.users === 'number') {
+            parts.push(`${cs.users.toLocaleString('en-US')} users`);
+          }
+          if (cs.version) {
+            parts.push(`v${cs.version}`);
+          }
+          if (parts.length) {
+            stats.textContent = parts.join(' · ');
+            stats.style.display = '';
+          }
+        }
 
         cardsContainer.appendChild(card);
       });

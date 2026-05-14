@@ -1,133 +1,42 @@
 [
   {
-    "name": "Task.bz",
-    "img": "taskbz.webp",
-    "github": "https://github.com/burse-dev/task.bz",
+    "name": "YouTube Milliseconds Timer",
+    "url": "https://chromewebstore.google.com/detail/youtube-milliseconds-time/bchlendkhiidadpakkfgnpeklmifffcp",
+    "img": "youtube-ms.jpg",
+    "github": "https://github.com/1gory/youtube-milliseconds-extension",
     "technologies": [
-      "node.js",
-      "React",
-      "PostgreSQL"
+      "Chrome Extension",
+      "JavaScript",
+      "Manifest V3"
     ],
-    "description": "A marketplace for small tasks (clicks on links, video views) for freelancers",
-    "descriptionRu": "Биржа микрозадач"
+    "description": "Chrome extension for YouTube: millisecond timestamps, jump-to-timestamp, A→B interval timer, one-click copy and watch time stats",
+    "descriptionRu": "Расширение для YouTube: миллисекундные таймкоды, переход к таймкоду, A→B интервалы, копирование в один клик и статистика просмотра",
+    "chromeStore": {
+      "rating": 4.2,
+      "ratingCount": 5,
+      "users": 330,
+      "version": "1.5.0",
+      "lastUpdate": "2026-04-15"
+    }
   },
   {
-    "name": "Lucky Promo",
-    "url": "https://lucky-promo.ru",
-    "img": "lp.webp",
+    "name": "Motivation Counter",
+    "url": "https://chromewebstore.google.com/detail/motivation-age-counter/jgebglhbeenjoehfkglemcfaimddnggl",
+    "img": "motivation-counter.jpg",
+    "github": "https://github.com/1gory/motivation-age-counter-extension",
     "technologies": [
-      "node.js",
-      "React",
-      "PostgreSQL"
+      "Chrome Extension",
+      "JavaScript",
+      "Manifest V3"
     ],
-    "description": "An aggregator of promotions, contests, sweepstakes and quizzes",
-    "descriptionRu": "Аггрегатор промоакций, конкурсов, розыгрышей и викторин"
-  },
-  {
-    "name": "Moscow Print Studio",
-    "url": "https://mosgosprint.ru",
-    "img": "mosgosprint.webp",
-    "technologies": [
-      "node.js",
-      "React",
-      "PostgreSQL"
-    ],
-    "description": "The website of Moscow Printing Studio with SEO-optimized pages, an online order builder, and an admin panel",
-    "descriptionRu": "Вебсайт Московской студии печати. Много страниц для SEO продвижения, онлнайн-конструктор заказа, администраторская панель"
-  },
-  {
-    "name": "Casewood",
-    "url": "https://casewood.ipershin.me",
-    "img": "casewood.webp",
-    "github": "https://github.com/1gory/case-shop",
-    "technologies": [
-      "node.js",
-      "React",
-      "mongodb"
-    ],
-    "description": "Online stohre and manufacturing for wooden iPhone cases",
-    "descriptionRu": "Интернет-магазин и производство деревянных чехлов на айфон."
-  },
-  {
-    "name": "Prosilence",
-    "url": "https://prosilence.ipershin.me",
-    "img": "prosilence.webp",
-    "github": "https://github.com/1gory/prosilence",
-    "technologies": [
-      "React"
-    ],
-    "description": "Website for a company that installs car soundproofing",
-    "descriptionRu": "Веб сайт компании устанавливающей шумоизоляции на автомобили."
-  },
-  {
-    "name": "Donishki",
-    "url": "https://donishki.ru",
-    "img": "donishki.webp",
-    "github": "https://github.com/casplase1/donishki",
-    "technologies": [
-      "node.js",
-      "React",
-      "mongodb"
-    ],
-    "description": "Online store of plywood products for needlework",
-    "descriptionRu": "Онлайн магазин изделий из фанеры, использующихся для рукоделия."
-  },
-  {
-    "name": "Vinokurov tours",
-    "url": "https://vinokurov-tours.ipershin.me",
-    "img": "vt.webp",
-    "github": "https://github.com/vinokurov-tours/vinokurov-tours",
-    "technologies": [
-      "React"
-    ],
-    "description": "Travel agency website"
-  },
-  {
-    "name": "UpYourBody",
-    "url": "https://upyourbody.ru",
-    "img": "upyourbody.webp",
-    "technologies": [
-      "React"
-    ],
-    "description": "Health improvement courses"
-  },
-  {
-    "name": "iValeshi",
-    "url": "https://ivaleshi.ipershin.me",
-    "img": "ivaleshi.webp",
-    "github": "https://github.com/1gory/ivaleshi",
-    "technologies": [
-      "React"
-    ],
-    "description": "Online store and production of custom felt boots"
-  },
-  {
-    "name": "Souvenirstudio",
-    "url": "https://sharik2687.tmweb.ru",
-    "img": "souvenirstudio.webp",
-    "github": "https://github.com/1gory/quiz",
-    "technologies": [
-      "React"
-    ],
-    "description": "Online calculator for phone case ordering costs"
-  },
-  {
-    "name": "Spirtol",
-    "url": "https://spirtoll.ipershin.me",
-    "img": "spirtol.webp",
-    "technologies": [
-      "React"
-    ],
-    "description": "Online store for an antiseptic company"
-  },
-  {
-    "name": "Nagravirovku",
-    "url": "https://nagravirovku.ipershin.me",
-    "img": "nagravirovku.webp",
-    "github": "https://github.com/casplase1/nagravirovku",
-    "technologies": [
-      "React"
-    ],
-    "description": "Production company website"
+    "description": "Chrome extension that replaces the new tab page with a real-time motivation counter: your age, a countdown to a date, or to the end of the year",
+    "descriptionRu": "Расширение, заменяющее новую вкладку счётчиком мотивации в реальном времени: возраст, обратный отсчёт до даты или до конца года",
+    "chromeStore": {
+      "rating": 5.0,
+      "ratingCount": 1,
+      "users": 26,
+      "version": "1.1.1",
+      "lastUpdate": "2026-04-15"
+    }
   }
 ]
