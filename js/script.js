@@ -58,13 +58,13 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   async function fetchLiveChromeStoreStats(extId) {
-    const cacheKey = `cws:${extId}`;
+    const cacheKey = `cws2:${extId}`;
     const TTL_MS = 60 * 60 * 1000;
     try {
       const raw = sessionStorage.getItem(cacheKey);
       if (raw) {
         const { ts, data } = JSON.parse(raw);
-        if (Date.now() - ts < TTL_MS) return data;
+        if (Date.now() - ts < TTL_MS && data && Object.keys(data).length) return data;
       }
     } catch (_) {}
 
@@ -86,9 +86,11 @@ document.addEventListener('DOMContentLoaded', function() {
     if (Number.isFinite(countNum)) data.ratingCount = countNum;
     if (version) data.version = version.replace(/^v/, '');
 
-    try {
-      sessionStorage.setItem(cacheKey, JSON.stringify({ ts: Date.now(), data }));
-    } catch (_) {}
+    if (Object.keys(data).length) {
+      try {
+        sessionStorage.setItem(cacheKey, JSON.stringify({ ts: Date.now(), data }));
+      } catch (_) {}
+    }
     return data;
   }
 
