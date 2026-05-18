@@ -79,3 +79,47 @@ h1, h2, h3 {
     vertical-align: baseline;
     width: 18px;
 }
+
+.rating-star {
+    display: inline-block;
+    position: relative;
+    background: linear-gradient(135deg, #fff4b8 0%, #ffd24a 35%, #f5a623 65%, #c87914 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    text-shadow: 0 0 1px rgba(245, 166, 35, 0.35);
+    filter: drop-shadow(0 0 1px rgba(255, 196, 0, 0.5));
+    font-size: 1.1em;
+    line-height: 1;
+    vertical-align: -1px;
+}
+
+.rating-star::after {
+    content: "★";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(115deg,
+        transparent 30%,
+        rgba(255, 255, 255, 0.9) 48%,
+        rgba(255, 255, 255, 0.95) 52%,
+        transparent 70%);
+    background-size: 250% 100%;
+    background-position: 200% 0;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    animation: rating-star-shine 3.2s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes rating-star-shine {
+    0%   { background-position: 200% 0; }
+    55%  { background-position: -100% 0; }
+    100% { background-position: -100% 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .rating-star::after { animation: none; }
+}

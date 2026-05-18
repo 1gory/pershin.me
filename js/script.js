@@ -37,16 +37,17 @@ document.addEventListener('DOMContentLoaded', function() {
     const parts = [];
     if (typeof cs.rating === 'number') {
       const reviews = cs.ratingCount ? ` (${cs.ratingCount})` : '';
-      parts.push(`★ ${cs.rating.toFixed(1)}${reviews}`);
+      parts.push(`<span class="rating-star" aria-hidden="true">★</span> ${cs.rating.toFixed(1)}${reviews}`);
     }
     if (typeof cs.users === 'number') {
       parts.push(`${cs.users.toLocaleString('en-US')} users`);
     }
     if (cs.version) {
-      parts.push(`v${cs.version}`);
+      const safeVersion = String(cs.version).replace(/[^\w.-]/g, '');
+      if (safeVersion) parts.push(`v${safeVersion}`);
     }
     if (parts.length) {
-      stats.textContent = parts.join(' · ');
+      stats.innerHTML = parts.join(' · ');
       stats.style.display = '';
     }
   }
