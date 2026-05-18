@@ -10,14 +10,7 @@
       "Manifest V3"
     ],
     "description": "Chrome extension for YouTube: millisecond timestamps, jump-to-timestamp, A→B interval timer, one-click copy and watch time stats",
-    "descriptionRu": "Расширение для YouTube: миллисекундные таймкоды, переход к таймкоду, A→B интервалы, копирование в один клик и статистика просмотра",
-    "chromeStore": {
-      "rating": 4.2,
-      "ratingCount": 5,
-      "users": 330,
-      "version": "1.5.0",
-      "lastUpdate": "2026-04-15"
-    }
+    "descriptionRu": "Расширение для YouTube: миллисекундные таймкоды, переход к таймкоду, A→B интервалы, копирование в один клик и статистика просмотра"
   },
   {
     "name": "Motivation Counter",
@@ -30,13 +23,6 @@
       "Manifest V3"
     ],
     "description": "Chrome extension that replaces the new tab page with a real-time motivation counter: your age, a countdown to a date, or to the end of the year",
-    "descriptionRu": "Расширение, заменяющее новую вкладку счётчиком мотивации в реальном времени: возраст, обратный отсчёт до даты или до конца года",
-    "chromeStore": {
-      "rating": 5.0,
-      "ratingCount": 1,
-      "users": 26,
-      "version": "1.1.1",
-      "lastUpdate": "2026-04-15"
-    }
+    "descriptionRu": "Расширение, заменяющее новую вкладку счётчиком мотивации в реальном времени: возраст, обратный отсчёт до даты или до конца года"
   }
 ]

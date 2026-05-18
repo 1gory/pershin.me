@@ -33,6 +33,64 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
+  function renderStoreStats(stats, cs) {
+    const parts = [];
+    if (typeof cs.rating === 'number') {
+      const reviews = cs.ratingCount ? ` (${cs.ratingCount})` : '';
+      parts.push(`★ ${cs.rating.toFixed(1)}${reviews}`);
+    }
+    if (typeof cs.users === 'number') {
+      parts.push(`${cs.users.toLocaleString('en-US')} users`);
+    }
+    if (cs.version) {
+      parts.push(`v${cs.version}`);
+    }
+    if (parts.length) {
+      stats.textContent = parts.join(' · ');
+      stats.style.display = '';
+    }
+  }
+
+  function extractExtensionId(url) {
+    const m = url && url.match(/\/detail\/[^/]+\/([a-p]{32})/);
+    return m ? m[1] : null;
+  }
+
+  async function fetchLiveChromeStoreStats(extId) {
+    const cacheKey = `cws:${extId}`;
+    const TTL_MS = 60 * 60 * 1000;
+    try {
+      const raw = sessionStorage.getItem(cacheKey);
+      if (raw) {
+        const { ts, data } = JSON.parse(raw);
+        if (Date.now() - ts < TTL_MS) return data;
+      }
+    } catch (_) {}
+
+    const base = 'https://img.shields.io/chrome-web-store';
+    const endpoints = ['users', 'rating', 'rating-count', 'v'];
+    const results = await Promise.all(endpoints.map(ep =>
+      fetch(`${base}/${ep}/${extId}.json`)
+        .then(r => r.ok ? r.json() : null)
+        .catch(() => null)
+    ));
+    const [users, rating, ratingCount, version] = results.map(r => r && r.value);
+
+    const data = {};
+    const usersNum = users && parseInt(users.replace(/[^\d]/g, ''), 10);
+    if (Number.isFinite(usersNum)) data.users = usersNum;
+    const ratingNum = rating && parseFloat(rating);
+    if (Number.isFinite(ratingNum)) data.rating = ratingNum;
+    const countNum = ratingCount && parseInt(ratingCount.replace(/[^\d]/g, ''), 10);
+    if (Number.isFinite(countNum)) data.ratingCount = countNum;
+    if (version) data.version = version.replace(/^v/, '');
+
+    try {
+      sessionStorage.setItem(cacheKey, JSON.stringify({ ts: Date.now(), data }));
+    } catch (_) {}
+    return data;
+  }
+
   // Projects loading
   const loadingIndicator = document.getElementById('loading-indicator');
 
@@ -63,11 +121,13 @@ document.addEventListener('DOMContentLoaded', function() {
         const projectLink = card.querySelector('.project-link');
         const githubLink = card.querySelector('.project-github');
 
+        const extId = extractExtensionId(project.url);
+
         if (project.url) {
           projectLink.href = project.url;
           projectLink.setAttribute('data-goal', 'project_view_click');
           projectLink.setAttribute('data-goal-params', JSON.stringify({project_name: project.name}));
-          if (project.chromeStore) {
+          if (extId) {
             projectLink.textContent = 'Chrome Web Store';
           }
         } else {
@@ -96,25 +156,14 @@ document.addEventListener('DOMContentLoaded', function() {
           technologiesContainer.appendChild(badge);
         });
 
-        // Chrome Web Store stats
-        if (project.chromeStore) {
+        // Chrome Web Store stats — fetched live from shields.io
+        if (extId) {
           const stats = card.querySelector('.store-stats');
-          const cs = project.chromeStore;
-          const parts = [];
-          if (typeof cs.rating === 'number') {
-            const reviews = cs.ratingCount ? ` (${cs.ratingCount})` : '';
-            parts.push(`★ ${cs.rating.toFixed(1)}${reviews}`);
-          }
-          if (typeof cs.users === 'number') {
-            parts.push(`${cs.users.toLocaleString('en-US')} users`);
-          }
-          if (cs.version) {
-            parts.push(`v${cs.version}`);
-          }
-          if (parts.length) {
-            stats.textContent = parts.join(' · ');
-            stats.style.display = '';
-          }
+          fetchLiveChromeStoreStats(extId).then(live => {
+            if (live && Object.keys(live).length) {
+              renderStoreStats(stats, live);
+            }
+          });
         }
 
         cardsContainer.appendChild(card);
