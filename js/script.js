@@ -116,8 +116,22 @@ document.addEventListener('DOMContentLoaded', function() {
       projects.forEach(project => {
         const card = template.content.cloneNode(true);
 
-        // Fill card data
-        card.querySelector('.card-title').textContent = project.name;
+        // Fill card data — make the title link to the project homepage if set
+        const titleEl = card.querySelector('.card-title');
+        titleEl.textContent = '';
+        if (project.homepage) {
+          const titleLink = document.createElement('a');
+          titleLink.href = project.homepage;
+          titleLink.target = '_blank';
+          titleLink.rel = 'noopener';
+          titleLink.className = 'card-title-link';
+          titleLink.textContent = project.name;
+          titleLink.setAttribute('data-goal', 'project_homepage_click');
+          titleLink.setAttribute('data-goal-params', JSON.stringify({project_name: project.name}));
+          titleEl.appendChild(titleLink);
+        } else {
+          titleEl.textContent = project.name;
+        }
         card.querySelector('.card-text').textContent = project.description;
 
         // Handle project links

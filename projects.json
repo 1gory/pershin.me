@@ -1,6 +1,7 @@
 [
   {
     "name": "YouTube Milliseconds Timer",
+    "homepage": "https://1gory.github.io/youtube-milliseconds-extension/",
     "url": "https://chromewebstore.google.com/detail/youtube-milliseconds-time/bchlendkhiidadpakkfgnpeklmifffcp",
     "img": "youtube-ms.jpg",
     "github": "https://github.com/1gory/youtube-milliseconds-extension",
@@ -14,6 +15,7 @@
   },
   {
     "name": "Motivation Counter",
+    "homepage": "https://1gory.github.io/motivation-age-counter-extension/",
     "url": "https://chromewebstore.google.com/detail/motivation-counter/jgebglhbeenjoehfkglemcfaimddnggl",
     "img": "motivation-counter.jpg",
     "github": "https://github.com/1gory/motivation-age-counter-extension",
