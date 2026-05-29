@@ -26,5 +26,18 @@
     ],
     "description": "Chrome extension that replaces the new tab page with a real-time motivation counter: your age, a countdown to a date, or to the end of the year",
     "descriptionRu": "Расширение, заменяющее новую вкладку счётчиком мотивации в реальном времени: возраст, обратный отсчёт до даты или до конца года"
+  },
+  {
+    "name": "My Little Plant",
+    "homepage": "https://1gory.github.io/my-little-plant/",
+    "img": "my-little-plant.jpg",
+    "github": "https://github.com/1gory/my-little-plant",
+    "technologies": [
+      "Chrome Extension",
+      "JavaScript",
+      "Manifest V3"
+    ],
+    "description": "A cozy, low-pressure browser game living in your toolbar: grow a real plant in the popup over about a month — water, trim and repot it as it grows in real time, even with the popup closed",
+    "descriptionRu": "Уютная неспешная игра в панели браузера: выращивайте растение в попапе примерно за месяц — поливайте, подрезайте и пересаживайте; оно растёт в реальном времени, даже когда попап закрыт"
   }
 ]
