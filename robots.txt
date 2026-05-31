@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://pershin.me/sitemap.xml
+Sitemap: https://ipershin.me/sitemap.xml
