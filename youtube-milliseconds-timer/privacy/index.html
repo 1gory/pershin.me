@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy Policy — YouTube Milliseconds Timer</title>
+  <meta name="description" content="Privacy policy for the YouTube Milliseconds Timer Chrome extension. No data is collected; everything stays on your device.">
+  <link rel="canonical" href="https://pershin.me/youtube-milliseconds-timer/privacy/">
+  <meta name="robots" content="index,follow">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+
+  <style>
+    :root { --bg-color: #fefdfb; --text-color: #212529; --card-bg: #fff; --border-color: #dee2e6; --muted-color: #6c757d; }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg-color: #1a1a1a; --text-color: #e9ecef; --card-bg: #2d2d2d; --border-color: #495057; --muted-color: #adb5bd; }
+    }
+    .dark-theme { --bg-color: #1a1a1a; --text-color: #e9ecef; --card-bg: #2d2d2d; --border-color: #495057; --muted-color: #adb5bd; }
+    .light-theme { --bg-color: #fefdfb; --text-color: #212529; --card-bg: #fff; --border-color: #dee2e6; --muted-color: #6c757d; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; margin: 0; background-color: var(--bg-color); color: var(--text-color); transition: background-color 0.3s ease, color 0.3s ease; }
+  </style>
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"></noscript>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet"></noscript>
+  <link rel="stylesheet" href="/style.css?v=1.3">
+  <link rel="stylesheet" href="/landing.css?v=1.0">
+</head>
+<body>
+
+<div class="landing-wrap">
+  <nav class="crumb" aria-label="Breadcrumb">
+    <a href="/youtube-milliseconds-timer/">← YouTube Milliseconds Timer</a>
+  </nav>
+
+  <article class="prose">
+    <h1>Privacy Policy</h1>
+    <p class="meta">YouTube Milliseconds Timer · Last updated: April 2026</p>
+
+    <h2>What data we collect</h2>
+    <p>None. The extension does not collect, transmit, or share any personal data.</p>
+
+    <h2>Local storage</h2>
+    <p>The extension stores the following data <strong>exclusively on your device</strong> using Chrome's built-in storage API:</p>
+    <ul>
+      <li>User settings — milliseconds toggle, interval timer toggle</li>
+      <li>Watch-time statistics — total time and per-day breakdown</li>
+    </ul>
+    <p>This data never leaves your browser and is not accessible to anyone other than you.</p>
+
+    <h2>Clipboard</h2>
+    <p>The extension writes to the clipboard only when you explicitly click a copy button (timestamp or interval delta). It never reads from the clipboard and never accesses it automatically.</p>
+
+    <h2>Third-party services</h2>
+    <p>None. No analytics, no tracking pixels, no external requests of any kind.</p>
+
+    <h2>Permissions</h2>
+    <ul>
+      <li><strong>storage</strong> — to save your settings and watch-time statistics locally</li>
+      <li><strong>clipboardWrite</strong> — to copy timestamps when you click the copy button</li>
+      <li><strong>youtube.com</strong> — to inject the extension UI into YouTube pages</li>
+    </ul>
+
+    <h2>Changes to this policy</h2>
+    <p>If this policy is updated, the new version will be published at this URL and the "Last updated" date above will change.</p>
+
+    <h2>Contact</h2>
+    <p>Questions? Email <a href="mailto:igor.pershin.me@gmail.com">igor.pershin.me@gmail.com</a> or open an issue on <a href="https://github.com/1gory/youtube-milliseconds-extension" target="_blank" rel="noopener">GitHub</a>.</p>
+  </article>
+</div>
+
+<footer class="text-center py-4 mt-5 border-top">
+  <p class="mb-1"><span id="current-year"></span> © Igor Pershin</p>
+  <p class="text-muted small mb-0">Just another human trying to survive</p>
+</footer>
+
+<button class="btn btn-sm btn-outline-secondary position-fixed" style="top: 20px; right: 20px; z-index: 1000;" id="theme-toggle" aria-label="Toggle theme">🌓</button>
+
+<script src="/js/theme.js?v=1.0" defer></script>
+</body>
+</html>

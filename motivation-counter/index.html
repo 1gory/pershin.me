@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Motivation Counter — Chrome new-tab extension by Igor Pershin</title>
+  <meta name="description"
+        content="A Chrome extension that replaces your new tab with a real-time counter: watch your age tick up, count down to any date or to the end of the year, with a daily quote. No tracking.">
+  <link rel="canonical" href="https://pershin.me/motivation-counter/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Motivation Counter">
+  <meta property="og:description" content="Replace your new tab with a real-time counter — your age, a countdown to a date, or to the end of the year.">
+  <meta property="og:url" content="https://pershin.me/motivation-counter/">
+  <meta property="og:image" content="https://pershin.me/img/projects/motivation-counter.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+
+  <style>
+    :root { --bg-color: #fefdfb; --text-color: #212529; --card-bg: #fff; --border-color: #dee2e6; --muted-color: #6c757d; }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg-color: #1a1a1a; --text-color: #e9ecef; --card-bg: #2d2d2d; --border-color: #495057; --muted-color: #adb5bd; }
+    }
+    .dark-theme { --bg-color: #1a1a1a; --text-color: #e9ecef; --card-bg: #2d2d2d; --border-color: #495057; --muted-color: #adb5bd; }
+    .light-theme { --bg-color: #fefdfb; --text-color: #212529; --card-bg: #fff; --border-color: #dee2e6; --muted-color: #6c757d; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; margin: 0; background-color: var(--bg-color); color: var(--text-color); transition: background-color 0.3s ease, color 0.3s ease; }
+  </style>
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"></noscript>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet"></noscript>
+  <link rel="stylesheet" href="/style.css?v=1.3">
+  <link rel="stylesheet" href="/landing.css?v=1.0">
+
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+      m[i].l=1*new Date();
+      for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+      k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+    ym(65479363, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true });
+  </script>
+  <noscript><div><img src="https://mc.yandex.ru/watch/65479363" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+  <!-- /Yandex.Metrika counter -->
+</head>
+<body>
+
+<div class="landing-wrap">
+  <nav class="crumb" aria-label="Breadcrumb">
+    <a href="/" data-goal="landing_back_click" data-goal-params='{"project_name":"Motivation Counter"}'>← Igor Pershin</a>
+  </nav>
+
+  <header class="landing-header">
+    <img class="logo" src="/motivation-counter/icon.png" alt="Motivation Counter icon" width="80" height="80">
+    <h1>Motivation Counter</h1>
+    <p class="tagline">Replace your new tab with a real-time counter. Track your age, count down to a date, or to the end of the year — a quiet reminder that time is passing.</p>
+    <a class="cws-badge" href="https://chromewebstore.google.com/detail/motivation-counter/jgebglhbeenjoehfkglemcfaimddnggl" target="_blank" rel="noopener" data-goal="cws_install_click" data-goal-params='{"project_name":"Motivation Counter"}'>
+      <img src="/img/chrome-webstore-badge.svg" alt="Available in the Chrome Web Store" width="206" height="60">
+    </a>
+    <div class="hero-shot">
+      <img src="/img/projects/motivation-counter.jpg" alt="Motivation Counter new tab page" loading="lazy">
+    </div>
+  </header>
+
+  <main>
+    <div class="features">
+      <div class="feature">
+        <div class="feature-icon">⏱</div>
+        <h2>Age counter</h2>
+        <p>Watch your age tick up in real time, down to the millisecond. A quiet reminder that time is passing.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">📅</div>
+        <h2>Countdown modes</h2>
+        <p>Count down to the end of the year or to any date you choose — a deadline, a birthday, an event.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">💬</div>
+        <h2>Daily quote</h2>
+        <p>A new motivational quote every day from a curated collection of 1500+. Toggle it off if you prefer silence.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🔍</div>
+        <h2>Optional search bar</h2>
+        <p>Search the web straight from your new tab with your choice of engine — in the same tab or a new one. Off by default.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🎨</div>
+        <h2>Make it yours</h2>
+        <p>Six color palettes (three light, three dark) or follow the system theme, three fonts, and three counter sizes.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🔢</div>
+        <h2>Tabs counter</h2>
+        <p>See how many new tabs you have opened with the extension — a quiet tally that shows the time adding up.</p>
+      </div>
+    </div>
+
+    <div class="links">
+      <a href="https://chromewebstore.google.com/detail/motivation-counter/jgebglhbeenjoehfkglemcfaimddnggl" target="_blank" rel="noopener" data-goal="cws_install_click" data-goal-params='{"project_name":"Motivation Counter"}'>
+        <div class="link-icon">🧩</div>
+        <div class="link-text"><strong>Chrome Web Store</strong><span>Install the extension</span></div>
+        <span class="link-arrow">›</span>
+      </a>
+      <a href="https://github.com/1gory/motivation-age-counter-extension" target="_blank" rel="noopener" data-goal="github_click" data-goal-params='{"project_name":"Motivation Counter"}'>
+        <div class="link-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577v-2.165c-3.338.726-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.73.083-.73 1.205.085 1.84 1.237 1.84 1.237 1.07 1.835 2.809 1.305 3.495.998.108-.776.418-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.468-2.38 1.235-3.22-.123-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.3 1.23a11.52 11.52 0 0 1 3-.404c1.02.005 2.047.138 3 .404 2.29-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.12 3.176.77.84 1.232 1.91 1.232 3.22 0 4.61-2.807 5.625-5.48 5.92.43.372.823 1.102.823 2.222v3.293c0 .322.218.694.825.576C20.565 21.796 24 17.298 24 12c0-6.63-5.37-12-12-12z"/></svg>
+        </div>
+        <div class="link-text"><strong>GitHub</strong><span>Source code and releases</span></div>
+        <span class="link-arrow">›</span>
+      </a>
+      <a href="https://github.com/1gory/motivation-age-counter-extension/releases" target="_blank" rel="noopener">
+        <div class="link-icon">📦</div>
+        <div class="link-text"><strong>Releases</strong><span>Download a ZIP for manual installation</span></div>
+        <span class="link-arrow">›</span>
+      </a>
+      <a href="/motivation-counter/privacy/">
+        <div class="link-icon">🔒</div>
+        <div class="link-text"><strong>Privacy Policy</strong><span>No data collected — everything stays on your device</span></div>
+        <span class="link-arrow">›</span>
+      </a>
+      <a href="https://github.com/1gory/motivation-age-counter-extension/blob/main/LICENSE" target="_blank" rel="noopener">
+        <div class="link-icon">📄</div>
+        <div class="link-text"><strong>MIT License</strong><span>Open source · © Igor Pershin</span></div>
+        <span class="link-arrow">›</span>
+      </a>
+    </div>
+  </main>
+</div>
+
+<footer class="text-center py-4 mt-5 border-top">
+  <p class="mb-1"><span id="current-year"></span> © Igor Pershin</p>
+  <p class="text-muted small mb-0">Just another human trying to survive</p>
+</footer>
+
+<button class="btn btn-sm btn-outline-secondary position-fixed" style="top: 20px; right: 20px; z-index: 1000;" id="theme-toggle" aria-label="Toggle theme">🌓</button>
+
+<script src="/js/theme.js?v=1.0" defer></script>
+</body>
+</html>

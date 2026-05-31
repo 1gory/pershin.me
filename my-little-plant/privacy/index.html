@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy Policy — My Little Plant</title>
+  <meta name="description" content="Privacy policy for the My Little Plant Chrome extension. No data is collected; everything stays on your device.">
+  <link rel="canonical" href="https://pershin.me/my-little-plant/privacy/">
+  <meta name="robots" content="index,follow">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+
+  <style>
+    :root { --bg-color: #fefdfb; --text-color: #212529; --card-bg: #fff; --border-color: #dee2e6; --muted-color: #6c757d; }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg-color: #1a1a1a; --text-color: #e9ecef; --card-bg: #2d2d2d; --border-color: #495057; --muted-color: #adb5bd; }
+    }
+    .dark-theme { --bg-color: #1a1a1a; --text-color: #e9ecef; --card-bg: #2d2d2d; --border-color: #495057; --muted-color: #adb5bd; }
+    .light-theme { --bg-color: #fefdfb; --text-color: #212529; --card-bg: #fff; --border-color: #dee2e6; --muted-color: #6c757d; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; margin: 0; background-color: var(--bg-color); color: var(--text-color); transition: background-color 0.3s ease, color 0.3s ease; }
+  </style>
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"></noscript>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet"></noscript>
+  <link rel="stylesheet" href="/style.css?v=1.3">
+  <link rel="stylesheet" href="/landing.css?v=1.0">
+</head>
+<body>
+
+<div class="landing-wrap">
+  <nav class="crumb" aria-label="Breadcrumb">
+    <a href="/my-little-plant/">← My Little Plant</a>
+  </nav>
+
+  <article class="prose">
+    <h1>Privacy Policy</h1>
+    <p class="meta">My Little Plant · Last updated: May 28, 2026</p>
+
+    <h2>Data collection</h2>
+    <p><strong>This extension does not collect any user data.</strong></p>
+
+    <h2>Information storage</h2>
+    <ul>
+      <li>Your plant's game state (chosen seed and pot, growth, water and health levels, and timestamps) is stored locally in your browser only, via <code>chrome.storage</code></li>
+      <li>No data is transmitted to external servers</li>
+      <li>No analytics, tracking, or monitoring is performed</li>
+      <li>The extension makes no network requests of any kind</li>
+    </ul>
+
+    <h2>Data usage</h2>
+    <p>The stored game state is used solely to keep your plant growing between sessions and to advance the simulation while the popup is closed. This data never leaves your device.</p>
+
+    <h2>Changes to this policy</h2>
+    <p>If this policy is updated, the new version will be published at this URL and the "Last updated" date above will change.</p>
+
+    <h2>Contact</h2>
+    <p>For questions about this policy: <a href="mailto:igor.pershin.me@gmail.com">igor.pershin.me@gmail.com</a></p>
+
+    <p class="text-muted small mt-4">My Little Plant is a small, free, open-source browser game.</p>
+  </article>
+</div>
+
+<footer class="text-center py-4 mt-5 border-top">
+  <p class="mb-1"><span id="current-year"></span> © Igor Pershin</p>
+  <p class="text-muted small mb-0">Just another human trying to survive</p>
+</footer>
+
+<button class="btn btn-sm btn-outline-secondary position-fixed" style="top: 20px; right: 20px; z-index: 1000;" id="theme-toggle" aria-label="Toggle theme">🌓</button>
+
+<script src="/js/theme.js?v=1.0" defer></script>
+</body>
+</html>

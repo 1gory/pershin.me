@@ -1,0 +1,233 @@
+/* Shared styles for project landing + privacy pages.
+   Theme tokens (--bg-color, --card-bg, …) come from style.css. */
+
+.landing-wrap {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Breadcrumb / back link */
+.crumb {
+    padding: 28px 0 0;
+    font-size: 0.9rem;
+}
+
+.crumb a {
+    color: var(--muted-color);
+    text-decoration: none;
+}
+
+.crumb a:hover,
+.crumb a:focus-visible {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+/* Header */
+.landing-header {
+    text-align: center;
+    padding: 28px 0 8px;
+}
+
+.landing-header .logo {
+    width: 80px;
+    height: 80px;
+    border-radius: 18px;
+    margin: 0 auto 18px;
+    display: block;
+}
+
+.landing-header h1 {
+    font-size: 2rem;
+    margin-bottom: 12px;
+}
+
+.landing-header .tagline {
+    font-size: 1.1rem;
+    color: var(--muted-color);
+    max-width: 540px;
+    margin: 0 auto 24px;
+    line-height: 1.6;
+}
+
+.cws-badge {
+    display: inline-block;
+}
+
+.cws-badge img {
+    height: 60px;
+    transition: opacity 0.15s ease;
+}
+
+.cws-badge:hover img {
+    opacity: 0.85;
+}
+
+/* Hero preview image */
+.hero-shot {
+    margin: 36px auto 0;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+    line-height: 0;
+}
+
+.hero-shot img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Feature grid */
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+    margin: 48px 0;
+}
+
+.feature {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 22px 24px;
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.feature-icon {
+    font-size: 26px;
+    margin-bottom: 12px;
+}
+
+.feature h2 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.feature p {
+    font-size: 0.95rem;
+    color: var(--muted-color);
+    margin: 0;
+    line-height: 1.6;
+}
+
+.feature kbd {
+    font-family: 'SFMono-Regular', Consolas, monospace;
+    background: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 1px 6px;
+    font-size: 0.85em;
+}
+
+/* Links list */
+.links {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 56px;
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.links a {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 22px;
+    color: var(--text-color);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border-color);
+    transition: background 0.12s ease;
+}
+
+.links a:last-child {
+    border-bottom: none;
+}
+
+.links a:hover,
+.links a:focus-visible {
+    background: var(--bg-color);
+}
+
+.link-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 19px;
+    flex-shrink: 0;
+    background: var(--bg-color);
+    border: 1px solid var(--border-color);
+}
+
+.link-icon svg {
+    fill: var(--text-color);
+}
+
+.link-text strong {
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.link-text span {
+    font-size: 0.82rem;
+    color: var(--muted-color);
+}
+
+.link-arrow {
+    margin-left: auto;
+    color: var(--muted-color);
+    font-size: 18px;
+}
+
+/* Privacy / long-form content */
+.prose {
+    padding: 8px 0 64px;
+}
+
+.prose h1 {
+    font-size: 1.9rem;
+    margin-bottom: 6px;
+}
+
+.prose .meta {
+    color: var(--muted-color);
+    font-size: 0.9rem;
+    margin-bottom: 36px;
+}
+
+.prose h2 {
+    font-size: 1.15rem;
+    margin-top: 34px;
+    margin-bottom: 10px;
+}
+
+.prose p {
+    margin: 0 0 14px;
+    line-height: 1.75;
+}
+
+.prose ul {
+    padding-left: 1.4rem;
+    line-height: 1.75;
+}
+
+.prose code {
+    font-family: 'SFMono-Regular', Consolas, monospace;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-size: 0.88em;
+}
+
+.prose a {
+    color: inherit;
+    text-underline-offset: 2px;
+}
