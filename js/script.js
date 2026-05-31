@@ -58,13 +58,29 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   async function fetchLiveChromeStoreStats(extId) {
-    const cacheKey = `cws2:${extId}`;
-    const TTL_MS = 60 * 60 * 1000;
+    // cws3: bumped from cws2 to flush partial snapshots cached by the old logic.
+    const cacheKey = `cws3:${extId}`;
+    const FULL_TTL_MS = 60 * 60 * 1000;    // complete snapshot: refresh hourly
+    const PARTIAL_TTL_MS = 5 * 60 * 1000;  // incomplete snapshot: retry soon to fill gaps
+
+    // "Complete enough" = the always-present fields are there. rating/ratingCount
+    // are legitimately absent until an extension has its first rating, so they
+    // don't count toward completeness (otherwise a brand-new extension with no
+    // ratings would refetch forever).
+    const isComplete = (d) => d && d.version != null && d.users != null;
+
+    // Last-known-good snapshot, used both for the fast-path return and as the
+    // merge base below.
+    let prev = {};
     try {
       const raw = sessionStorage.getItem(cacheKey);
       if (raw) {
-        const { ts, data } = JSON.parse(raw);
-        if (Date.now() - ts < TTL_MS && data && Object.keys(data).length) return data;
+        const parsed = JSON.parse(raw);
+        if (parsed && parsed.data && typeof parsed.data === 'object') {
+          prev = parsed.data;
+          const ttl = isComplete(prev) ? FULL_TTL_MS : PARTIAL_TTL_MS;
+          if (Date.now() - parsed.ts < ttl && Object.keys(prev).length) return prev;
+        }
       }
     } catch (_) {}
 
@@ -77,14 +93,24 @@ document.addEventListener('DOMContentLoaded', function() {
     ));
     const [users, rating, ratingCount, version] = results.map(r => r && r.value);
 
-    const data = {};
+    // Only successfully-parsed fields land in `fresh`; a transiently-failed or
+    // "not found" endpoint is simply omitted (never written as a falsy value).
+    const fresh = {};
     const usersNum = users && parseInt(users.replace(/[^\d]/g, ''), 10);
-    if (Number.isFinite(usersNum)) data.users = usersNum;
+    if (Number.isFinite(usersNum)) fresh.users = usersNum;
     const ratingNum = rating && parseFloat(rating);
-    if (Number.isFinite(ratingNum)) data.rating = ratingNum;
+    if (Number.isFinite(ratingNum)) fresh.rating = ratingNum;
     const countNum = ratingCount && parseInt(ratingCount.replace(/[^\d]/g, ''), 10);
-    if (Number.isFinite(countNum)) data.ratingCount = countNum;
-    if (version) data.version = version.replace(/^v/, '');
+    if (Number.isFinite(countNum)) fresh.ratingCount = countNum;
+    if (version) fresh.version = version.replace(/^v/, '');
+
+    // Merge fresh values OVER the last-known-good snapshot. shields.io rate-limits
+    // when the four requests fire at once, so any single endpoint can flap to null
+    // for one load. These metrics only grow (users, version) or appear-and-stay
+    // (rating), so keeping the previously shown value when a field fails to fetch
+    // stops it from vanishing — the bug where a rating disappeared after a flaky
+    // fetch and stayed gone for the whole cache window.
+    const data = { ...prev, ...fresh };
 
     if (Object.keys(data).length) {
       try {
