@@ -35,6 +35,7 @@ jobs:
             --exclude='.git/' \
             --exclude='.github/' \
             --exclude='.idea/' \
+            --exclude='ops/' \
             --exclude='.gitignore' \
             --exclude='.DS_Store' \
             --exclude='**/.DS_Store' \

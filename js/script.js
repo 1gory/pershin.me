@@ -57,67 +57,20 @@ document.addEventListener('DOMContentLoaded', function() {
     return m ? m[1] : null;
   }
 
-  async function fetchLiveChromeStoreStats(extId) {
-    // cws3: bumped from cws2 to flush partial snapshots cached by the old logic.
-    const cacheKey = `cws3:${extId}`;
-    const FULL_TTL_MS = 60 * 60 * 1000;    // complete snapshot: refresh hourly
-    const PARTIAL_TTL_MS = 5 * 60 * 1000;  // incomplete snapshot: retry soon to fill gaps
-
-    // "Complete enough" = the always-present fields are there. rating/ratingCount
-    // are legitimately absent until an extension has its first rating, so they
-    // don't count toward completeness (otherwise a brand-new extension with no
-    // ratings would refetch forever).
-    const isComplete = (d) => d && d.version != null && d.users != null;
-
-    // Last-known-good snapshot, used both for the fast-path return and as the
-    // merge base below.
-    let prev = {};
-    try {
-      const raw = sessionStorage.getItem(cacheKey);
-      if (raw) {
-        const parsed = JSON.parse(raw);
-        if (parsed && parsed.data && typeof parsed.data === 'object') {
-          prev = parsed.data;
-          const ttl = isComplete(prev) ? FULL_TTL_MS : PARTIAL_TTL_MS;
-          if (Date.now() - parsed.ts < ttl && Object.keys(prev).length) return prev;
-        }
-      }
-    } catch (_) {}
-
-    const base = 'https://img.shields.io/chrome-web-store';
-    const endpoints = ['users', 'rating', 'rating-count', 'v'];
-    const results = await Promise.all(endpoints.map(ep =>
-      fetch(`${base}/${ep}/${extId}.json`)
-        .then(r => r.ok ? r.json() : null)
-        .catch(() => null)
-    ));
-    const [users, rating, ratingCount, version] = results.map(r => r && r.value);
-
-    // Only successfully-parsed fields land in `fresh`; a transiently-failed or
-    // "not found" endpoint is simply omitted (never written as a falsy value).
-    const fresh = {};
-    const usersNum = users && parseInt(users.replace(/[^\d]/g, ''), 10);
-    if (Number.isFinite(usersNum)) fresh.users = usersNum;
-    const ratingNum = rating && parseFloat(rating);
-    if (Number.isFinite(ratingNum)) fresh.rating = ratingNum;
-    const countNum = ratingCount && parseInt(ratingCount.replace(/[^\d]/g, ''), 10);
-    if (Number.isFinite(countNum)) fresh.ratingCount = countNum;
-    if (version) fresh.version = version.replace(/^v/, '');
-
-    // Merge fresh values OVER the last-known-good snapshot. shields.io rate-limits
-    // when the four requests fire at once, so any single endpoint can flap to null
-    // for one load. These metrics only grow (users, version) or appear-and-stay
-    // (rating), so keeping the previously shown value when a field fails to fetch
-    // stops it from vanishing — the bug where a rating disappeared after a flaky
-    // fetch and stayed gone for the whole cache window.
-    const data = { ...prev, ...fresh };
-
-    if (Object.keys(data).length) {
-      try {
-        sessionStorage.setItem(cacheKey, JSON.stringify({ ts: Date.now(), data }));
-      } catch (_) {}
+  // Chrome Web Store stats are prepared server-side: an hourly cron writes
+  // /stats.json into the web root (see ops/update-stats.py), so the client just
+  // reads its own origin — no shields.io calls, no rate-limit flakiness, and a
+  // field can't vanish on a flaky fetch (the server keeps last-known-good values).
+  // One request is shared across every card via the cached promise.
+  let _serverStatsPromise = null;
+  function fetchLiveChromeStoreStats(extId) {
+    if (!_serverStatsPromise) {
+      _serverStatsPromise = fetch('/stats.json', { cache: 'no-store' })
+        .then(r => (r.ok ? r.json() : null))
+        .then(d => (d && d.stats) ? d.stats : {})
+        .catch(() => ({}));
     }
-    return data;
+    return _serverStatsPromise.then(all => all[extId] || {});
   }
 
   // Projects loading
