@@ -113,6 +113,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         card.querySelector('.card-text').textContent = project.description;
 
+        // Optional status pill (e.g. "In development") — generic, any project may set it
+        const statusEl = card.querySelector('.card-status');
+        if (project.status) {
+          statusEl.innerHTML = '<span class="dot"></span>';
+          statusEl.appendChild(document.createTextNode(project.status));
+          statusEl.style.display = '';
+        }
+
         // Handle project links
         const projectLink = card.querySelector('.project-link');
         const githubLink = card.querySelector('.project-github');
@@ -126,6 +134,11 @@ document.addEventListener('DOMContentLoaded', function() {
           if (extId) {
             projectLink.textContent = 'Chrome Web Store';
           }
+        } else if (project.homepage) {
+          // No store/external URL — fall back to the on-domain project page
+          projectLink.href = project.homepage;
+          projectLink.setAttribute('data-goal', 'project_view_click');
+          projectLink.setAttribute('data-goal-params', JSON.stringify({project_name: project.name}));
         } else {
           projectLink.remove();
         }

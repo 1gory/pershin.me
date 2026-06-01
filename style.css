@@ -96,6 +96,31 @@ h1, h2, h3 {
     margin-right: 0;
 }
 
+/* Reusable project status pill (e.g. "In development"). Shown on a card when a
+   project in projects.json has a "status" field. Site-wide, not project-specific. */
+.card-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--muted-color);
+    border: 1px solid var(--border-color);
+    border-radius: 999px;
+    padding: 3px 10px;
+    margin-bottom: 10px;
+    align-self: flex-start;
+}
+
+.card-status .dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #e0a106;
+    box-shadow: 0 0 0 3px rgba(224, 161, 6, 0.18);
+}
+
 .btn:focus, .btn:active {
     outline: none !important;
     box-shadow: none !important;

@@ -1,5 +1,18 @@
 [
   {
+    "name": "Too Far Gone",
+    "homepage": "https://ipershin.me/too-far-gone/",
+    "img": "too-far-gone.jpg",
+    "status": "In development",
+    "technologies": [
+      "Godot",
+      "GDScript",
+      "Pixel art"
+    ],
+    "description": "An atmospheric, story-driven pixel-art game set in a silent post-apocalyptic wasteland — you wake with no memory and one certainty: you can't stay. In development, built solo in Godot, with an open devlog.",
+    "descriptionRu": "Атмосферная сюжетная пиксельная игра в безмолвной постапокалиптической пустоши — герой очнулся без памяти, зная одно: оставаться здесь нельзя. В разработке, делается соло на Godot, с открытым девлогом."
+  },
+  {
     "name": "YouTube Milliseconds Timer",
     "homepage": "https://ipershin.me/youtube-milliseconds-timer/",
     "url": "https://chromewebstore.google.com/detail/youtube-milliseconds-time/bchlendkhiidadpakkfgnpeklmifffcp",

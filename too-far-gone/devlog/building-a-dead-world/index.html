@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Building a dead world without going full 3D — Too Far Gone Devlog #1</title>
+  <meta name="description"
+        content="Devlog #1 for Too Far Gone: why it's a top-down pixel game faking depth with sprite stacking, how the dead forest is built, and the early decisions that set the whole mood.">
+  <link rel="canonical" href="https://ipershin.me/too-far-gone/devlog/building-a-dead-world/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Building a dead world without going full 3D — Too Far Gone Devlog #1">
+  <meta property="og:description" content="Why this is a top-down pixel game faking depth with sprite stacking, and how the dead forest is made.">
+  <meta property="og:url" content="https://ipershin.me/too-far-gone/devlog/building-a-dead-world/">
+  <meta property="og:image" content="https://ipershin.me/too-far-gone/shots/tfg-forest.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+
+  <style>
+    :root { --bg-color: #fefdfb; --text-color: #212529; --card-bg: #fff; --border-color: #dee2e6; --muted-color: #6c757d; }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg-color: #1a1a1a; --text-color: #e9ecef; --card-bg: #2d2d2d; --border-color: #495057; --muted-color: #adb5bd; }
+    }
+    .dark-theme { --bg-color: #1a1a1a; --text-color: #e9ecef; --card-bg: #2d2d2d; --border-color: #495057; --muted-color: #adb5bd; }
+    .light-theme { --bg-color: #fefdfb; --text-color: #212529; --card-bg: #fff; --border-color: #dee2e6; --muted-color: #6c757d; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; margin: 0; background-color: var(--bg-color); color: var(--text-color); transition: background-color 0.3s ease, color 0.3s ease; }
+  </style>
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"></noscript>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet"></noscript>
+  <link rel="stylesheet" href="/style.css?v=1.3">
+  <link rel="stylesheet" href="/landing.css?v=1.1">
+
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+      m[i].l=1*new Date();
+      for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+      k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+    ym(65479363, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true });
+  </script>
+  <noscript><div><img src="https://mc.yandex.ru/watch/65479363" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+  <!-- /Yandex.Metrika counter -->
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Building a dead world without going full 3D",
+    "datePublished": "2026-05-25",
+    "dateModified": "2026-06-01",
+    "image": "https://ipershin.me/too-far-gone/shots/tfg-forest.jpg",
+    "author": { "@type": "Person", "name": "Igor Pershin", "url": "https://ipershin.me/" },
+    "mainEntityOfPage": "https://ipershin.me/too-far-gone/devlog/building-a-dead-world/",
+    "about": "Development of Too Far Gone, an atmospheric post-apocalyptic pixel-art game",
+    "url": "https://ipershin.me/too-far-gone/devlog/building-a-dead-world/"
+  }
+  </script>
+</head>
+<body>
+
+<div class="landing-wrap">
+  <nav class="crumb" aria-label="Breadcrumb">
+    <a href="/too-far-gone/devlog/">← Devlog</a>
+  </nav>
+
+  <article class="prose">
+    <h1>Building a dead world without going full 3D</h1>
+    <p class="meta">Devlog #1 · May 2026 · <a href="/too-far-gone/">Too Far Gone</a></p>
+
+    <p class="lead">Too Far Gone is an atmospheric pixel-art game about walking out of a dead world. Before any of the mood could land, one question had to be answered: in what kind of space does this story happen? This first entry is about that — the engine, the camera, and a trick that lets flat pixels pretend they have height.</p>
+
+    <h2>One person, so the tech has to be cheap</h2>
+    <p>This is a solo project built in <strong>Godot 4.6</strong> with GDScript. A solo budget changes every technical decision: the right answer is almost never the most impressive one, it's the one a single person can actually finish. So the prototype was assembled straight from code — the world, the player, the menu — rather than from hand-built scenes, which keeps everything in one place while the shape of the game is still moving.</p>
+    <p>That bias toward "what can one person ship" is the throughline of this whole devlog. Most of the interesting decisions below are really the same decision repeated: pick the version that looks right <em>and</em> can be maintained alone.</p>
+
+    <h2>Top-down, and faking depth instead of building it</h2>
+    <p>The biggest early call was <strong>2.5D, not full 3D</strong>. Going fully 3D would have thrown away every 2D asset and roughly tripled the workload — not viable solo. But a flat top-down world can feel airless. The compromise is <strong>sprite stacking</strong>: an object is drawn as a stack of flat slices, one above the next, and every frame the upper slices shift slightly <em>away</em> from the player. The object appears to lean and to have height; walk around it and it reads as a small 3D thing, even though it's all 2D.</p>
+    <p>A rule came out of this almost immediately: sprite stacking is for <em>small props</em> — trees, rocks, barrels, the campfire. Buildings stay simple (low stacks for ruins, or a single angled pixel-art sprite); you don't model a house, you let a doorway trigger a change of scene. Keeping that boundary is what stops the technique from becoming a time sink.</p>
+
+    <figure>
+      <img src="/too-far-gone/shots/tfg-forest.jpg" alt="The Dead Forest in Too Far Gone — stacked-sprite bare trees over an ashen floor" loading="lazy" width="1440" height="810">
+      <figcaption>The Dead Forest. Every tree is a stack of slices that leans as you move; the lower slices draw behind the character and the upper ones in front, so you pass <em>under</em> the canopy.</figcaption>
+    </figure>
+
+    <h2>The dead forest</h2>
+    <p>The trees are the workhorse of the look. Each one is a stack of slices: a thin trunk that tapers as it rises, with bare branches fanned out evenly toward the top. The bark is a small procedural shader — irregular vertical fibres, posterized so they stay pixel-crisp — and every tree gets a slightly different pattern so a grove doesn't look copy-pasted. A soft shadow grounds each one.</p>
+    <p>The detail that sells it is the z-sorting. Slices below the halfway mark draw <em>behind</em> the character; slices above draw <em>in front</em>. The result is that you walk under the crown of a dead tree and it passes over your head — a tiny thing that does an outsized amount of work for the feeling of being a small figure in a big, indifferent place. The forest itself is deliberately colourless: the ground desaturates toward warm ash, the trees are charcoal-dark, nothing is green. A dead world shouldn't have a single healthy leaf in it, and that "no green anywhere" rule comes back constantly later.</p>
+
+    <h2>The one warm thing: the menu fire</h2>
+    <p>If the world is ash and silence, the title screen is allowed exactly one bit of warmth. The menu is a static painting with a <strong>live campfire</strong> and drifting smoke (particles), plus a thin curl of cigarette smoke off to the side. The title is set in a chunky pixel font with no anti-aliasing, and a single line blinks: press a key to begin. It's the warmest the game ever gets, and that's intentional — it's the thing you're walking away from.</p>
+
+    <h2>The discipline that actually matters</h2>
+    <p>None of the above ships a game on its own. The rule that does is boring: <strong>don't add anything new until there's a playable slice that runs start to finish</strong>. Wake up, walk, reach one encounter, make one choice, see an ending, return to the menu, play again — the whole loop, even if each piece is thin. Atmosphere is easy to keep polishing forever; a finished five-minute slice is the thing that tells you whether any of it is working. Everything in the next entries is built on top of that slice, not instead of it.</p>
+
+    <p class="text-muted">Next time: the map was mostly empty, and emptiness reads as "unfinished." How the world got filled without turning into a chore.</p>
+  </article>
+
+  <nav class="entry-nav" aria-label="Devlog navigation">
+    <a class="prev" href="/too-far-gone/">← Back to the game</a>
+    <a class="next" href="/too-far-gone/devlog/filling-the-emptiness/">Devlog #2: Filling a world that was mostly empty →</a>
+  </nav>
+</div>
+
+<footer class="text-center py-4 mt-5 border-top">
+  <p class="mb-1"><span id="current-year"></span> © Igor Pershin</p>
+  <p class="text-muted small mb-0">Just another human trying to survive</p>
+</footer>
+
+<button class="btn btn-sm btn-outline-secondary position-fixed" style="top: 20px; right: 20px; z-index: 1000;" id="theme-toggle" aria-label="Toggle theme">🌓</button>
+
+<script src="/js/theme.js?v=1.0" defer></script>
+</body>
+</html>

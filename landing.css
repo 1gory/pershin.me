@@ -186,9 +186,168 @@
     font-size: 18px;
 }
 
+/* "In development" / status badge under a landing title */
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--muted-color);
+    border: 1px solid var(--border-color);
+    border-radius: 999px;
+    padding: 5px 14px;
+    margin-bottom: 18px;
+    background: var(--card-bg);
+}
+
+.status-badge .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #e0a106;
+    box-shadow: 0 0 0 3px rgba(224, 161, 6, 0.18);
+}
+
+/* Screenshot gallery */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 14px;
+    margin: 40px 0 56px;
+}
+
+.gallery figure {
+    margin: 0;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--card-bg);
+}
+
+.gallery img {
+    width: 100%;
+    height: auto;
+    display: block;
+    image-rendering: pixelated;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.gallery figcaption {
+    font-size: 0.82rem;
+    color: var(--muted-color);
+    padding: 9px 14px;
+    line-height: 1.5;
+}
+
+/* Devlog entry list (used on the hub + the /devlog/ index) */
+.devlog-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 56px;
+}
+
+.devlog-list li {
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    margin-bottom: 12px;
+    background: var(--card-bg);
+    transition: background 0.12s ease, border-color 0.3s ease;
+}
+
+.devlog-list a {
+    display: block;
+    padding: 18px 22px;
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.devlog-list li:hover,
+.devlog-list li:focus-within {
+    background: var(--bg-color);
+}
+
+.devlog-list .entry-date {
+    font-size: 0.78rem;
+    color: var(--muted-color);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.devlog-list .entry-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 4px 0 6px;
+}
+
+.devlog-list .entry-summary {
+    font-size: 0.92rem;
+    color: var(--muted-color);
+    margin: 0;
+    line-height: 1.6;
+}
+
 /* Privacy / long-form content */
 .prose {
     padding: 8px 0 64px;
+}
+
+/* Figures inside long-form devlog articles */
+.prose figure {
+    margin: 28px 0;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--card-bg);
+}
+
+.prose figure img {
+    width: 100%;
+    height: auto;
+    display: block;
+    image-rendering: pixelated;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.prose figcaption {
+    font-size: 0.84rem;
+    color: var(--muted-color);
+    padding: 9px 14px;
+    line-height: 1.55;
+}
+
+.prose .lead {
+    font-size: 1.12rem;
+    color: var(--text-color);
+    line-height: 1.7;
+}
+
+/* Prev/next navigation between devlog entries */
+.entry-nav {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    border-top: 1px solid var(--border-color);
+    padding-top: 24px;
+    margin-bottom: 64px;
+}
+
+.entry-nav a {
+    color: var(--muted-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+    max-width: 48%;
+}
+
+.entry-nav a:hover {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.entry-nav .next {
+    margin-left: auto;
+    text-align: right;
 }
 
 .prose h1 {
