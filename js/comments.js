@@ -28,7 +28,7 @@
   'use strict';
 
   // ── Config ──────────────────────────────────────────────────────────────────
-  var CUSDIS_HOST = 'https://cusdis.com';   // self-hosted? put your host here
+  var CUSDIS_HOST = 'https://comments.ipershin.me';   // self-hosted Cusdis instance
   var CUSDIS_APP_ID = '';                    // ← paste your Cusdis App ID to go live
   var CUSDIS_SCRIPT = CUSDIS_HOST + '/js/cusdis.es.js';
 
