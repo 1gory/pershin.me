@@ -381,6 +381,16 @@
     margin: 0;
 }
 
+/* Cusdis renders into a srcdoc iframe and resizes it via postMessage, but the
+   first measurement can land before its stylesheet applies, leaving the iframe
+   at the browser default (~150px) and clipping the form. A min-height keeps the
+   whole form visible; a real resize message (e.g. once there are comments) still
+   grows it past this. */
+#cusdis_thread iframe {
+    width: 100%;
+    min-height: 460px;
+}
+
 /* Prev/next navigation between devlog entries */
 .entry-nav {
     display: flex;
