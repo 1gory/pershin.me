@@ -29,7 +29,7 @@
 
   // ── Config ──────────────────────────────────────────────────────────────────
   var CUSDIS_HOST = 'https://comments.ipershin.me';   // self-hosted Cusdis instance
-  var CUSDIS_APP_ID = '';                    // ← paste your Cusdis App ID to go live
+  var CUSDIS_APP_ID = '3dac5d50-c6c5-4bec-ade1-c5a912070a8c';   // Cusdis website App ID
   var CUSDIS_SCRIPT = CUSDIS_HOST + '/js/cusdis.es.js';
 
   function currentTheme() {
