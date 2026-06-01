@@ -59,6 +59,22 @@ body {
     object-position: top center;
 }
 
+/* Clickable card screenshot → drills into the project */
+.card-img-link {
+    display: block;
+    overflow: hidden;
+}
+
+.card-img-link .card-img-top {
+    transition: opacity 0.15s ease, transform 0.3s ease;
+}
+
+.card-img-link:hover .card-img-top,
+.card-img-link:focus-visible .card-img-top {
+    opacity: 0.9;
+    transform: scale(1.03);
+}
+
 .text-muted {
     color: var(--muted-color) !important;
 }

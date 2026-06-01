@@ -151,10 +151,22 @@ document.addEventListener('DOMContentLoaded', function() {
           githubLink.remove();
         }
 
-        // Set project image
+        // Set project image — make it click through to the project, same as the title
         const img = card.querySelector('.card-img-top');
         img.src = `./img/projects/${project.img}`;
         img.alt = project.name;
+        const imageTarget = project.homepage || project.url;
+        if (imageTarget) {
+          const imgLink = document.createElement('a');
+          imgLink.href = imageTarget;
+          imgLink.target = '_blank';
+          imgLink.rel = 'noopener';
+          imgLink.className = 'card-img-link';
+          imgLink.setAttribute('data-goal', 'project_image_click');
+          imgLink.setAttribute('data-goal-params', JSON.stringify({project_name: project.name}));
+          img.parentNode.insertBefore(imgLink, img);
+          imgLink.appendChild(img);
+        }
 
         // Add technology badges
         const technologiesContainer = card.querySelector('.technologies');
