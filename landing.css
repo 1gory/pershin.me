@@ -210,6 +210,46 @@
     box-shadow: 0 0 0 3px rgba(224, 161, 6, 0.18);
 }
 
+/* Plain, borderless "what it is" grid — text only, no tiles, no emoji */
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 26px 40px;
+    margin: 44px 0 52px;
+}
+
+.about-item h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin: 0 0 6px;
+}
+
+.about-item p {
+    font-size: 0.95rem;
+    color: var(--muted-color);
+    margin: 0;
+    line-height: 1.65;
+}
+
+/* Plain text call-to-action link (e.g. "Read the full devlog →") */
+.text-cta {
+    margin: 8px 0 56px;
+    font-size: 1rem;
+}
+
+.text-cta a {
+    color: var(--text-color);
+    text-decoration: none;
+    border-bottom: 1px solid var(--muted-color);
+    padding-bottom: 1px;
+    transition: opacity 0.15s ease;
+}
+
+.text-cta a:hover,
+.text-cta a:focus-visible {
+    opacity: 0.7;
+}
+
 /* Screenshot gallery */
 .gallery {
     display: grid;
