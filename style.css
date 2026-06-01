@@ -50,6 +50,15 @@ body {
     border-bottom-color: var(--border-color) !important;
 }
 
+/* Uniform screenshot height so cards line up and don't jump on different
+   image aspect ratios. Site-wide for every project card. */
+.card-img-top {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+    object-position: top center;
+}
+
 .text-muted {
     color: var(--muted-color) !important;
 }
