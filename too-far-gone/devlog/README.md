@@ -36,7 +36,7 @@ One entry per session is fine even if short. Newest entry first everywhere.
 ## Entry skeleton
 
 Copy an existing entry (e.g. `small-moments/index.html`) — it already has the right
-`<head>` (theme vars, Bootstrap, fonts, Metrika, JSON-LD) and the comments mount.
+`<head>` (theme vars, Bootstrap, fonts, Metrika, JSON-LD).
 Only these parts change per entry:
 
 ```html
@@ -61,8 +61,6 @@ Only these parts change per entry:
   </figure>
 </article>
 
-<div id="comments"></div>
-
 <nav class="entry-nav" aria-label="Devlog navigation">
   <a class="prev" href="⟨previous entry or /too-far-gone/⟩">← ⟨prev label⟩</a>
   <a class="next" href="⟨next entry or /too-far-gone/⟩">⟨next label⟩ →</a>
@@ -70,5 +68,5 @@ Only these parts change per entry:
 ```
 
 Reusable styles already exist in `/landing.css`: `.prose`, `.lead`, `figure`,
-`.entry-nav`, `.devlog-list`, `#comments`. Don't add per-page CSS — extend
+`.entry-nav`, `.devlog-list`. Don't add per-page CSS — extend
 `landing.css` if something new is genuinely needed, and bump its `?v=` query.

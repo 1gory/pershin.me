@@ -363,31 +363,6 @@
     line-height: 1.7;
 }
 
-/* Comments (reusable site-wide block; widget injects into #comments) */
-#comments {
-    margin: 8px 0 56px;
-}
-
-.comments-heading {
-    font-size: 1.3rem;
-    margin-bottom: 14px;
-    padding-top: 24px;
-    border-top: 1px solid var(--border-color);
-}
-
-.comments-placeholder {
-    color: var(--muted-color);
-    font-size: 0.95rem;
-    margin: 0;
-}
-
-/* The Cusdis comment iframe is sized to its exact content height by comments.js
-   (it's a same-origin srcdoc iframe, so we can measure it). Width only here;
-   height is set in JS, so there's no inner scrollbar and no extra whitespace. */
-#cusdis_thread iframe {
-    width: 100%;
-}
-
 /* Prev/next navigation between devlog entries */
 .entry-nav {
     display: flex;
