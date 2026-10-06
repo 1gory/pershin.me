@@ -51,7 +51,7 @@ Only these parts change per entry:
 
 <article class="prose">
   <h1>⟨Entry title⟩</h1>
-  <p class="meta">Devlog #⟨N⟩ · ⟨Month Year⟩ · <a href="/too-far-gone/">Too Far Gone</a></p>
+  <p class="meta">Devlog #⟨N⟩ · ⟨Month Year⟩ · by <a href="/">Igor Pershin</a> · <a href="/too-far-gone/">Too Far Gone</a></p>
   <p class="lead">⟨One-paragraph hook⟩</p>
   <h2>⟨Section⟩</h2>
   <p>⟨…⟩</p>

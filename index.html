@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Igor Pershin | Just another human trying to survive</title>
+  <title>Igor Pershin — Software Developer</title>
   <meta name="description"
-        content="Igor Pershin — software developer. Indie browser games and Chrome extensions: Too Far Gone (an atmospheric pixel game in development), My Little Plant, Motivation Counter, and YouTube Milliseconds Timer.">
+        content="Igor Pershin — software developer. Indie games and Chrome extensions: Too Far Gone (an atmospheric pixel game in development), My Little Plant, Motivation Counter, and YouTube Milliseconds Timer.">
   <link rel="canonical" href="https://ipershin.me/">
   <meta name="theme-color" content="#1a1a1a">
 
@@ -126,24 +126,39 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Igor Pershin",
-    "url": "https://ipershin.me/",
-    "jobTitle": "Software Developer",
-    "sameAs": [
-      "https://github.com/1gory",
-      "https://www.linkedin.com/in/igor-pershin",
-      "https://t.me/igoryp"
+    "@graph": [
+      {
+        "@type": "ProfilePage",
+        "@id": "https://ipershin.me/#profile",
+        "url": "https://ipershin.me/",
+        "name": "Igor Pershin — Software Developer",
+        "mainEntity": { "@id": "https://ipershin.me/#person" },
+        "isPartOf": { "@id": "https://ipershin.me/#website" }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://ipershin.me/#person",
+        "name": "Igor Pershin",
+        "alternateName": "Игорь Першин",
+        "url": "https://ipershin.me/",
+        "jobTitle": "Software Developer",
+        "description": "Software developer making indie games and Chrome extensions: Too Far Gone, My Little Plant, Motivation Counter and YouTube Milliseconds Timer.",
+        "knowsAbout": ["Node.js", "JavaScript", "Chrome extensions", "Godot", "Game development"],
+        "sameAs": [
+          "https://github.com/1gory",
+          "https://www.linkedin.com/in/igor-pershin",
+          "https://t.me/igoryp"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://ipershin.me/#website",
+        "name": "Igor Pershin",
+        "url": "https://ipershin.me/",
+        "author": { "@id": "https://ipershin.me/#person" },
+        "publisher": { "@id": "https://ipershin.me/#person" }
+      }
     ]
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Igor Pershin",
-    "url": "https://ipershin.me/",
-    "author": { "@type": "Person", "name": "Igor Pershin" }
   }
   </script>
 </head>
