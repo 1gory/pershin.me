@@ -1,7 +1,3 @@
 .idea
 .DS_Store
 __pycache__/
-ops/server/
-
-# Personal product docs — keep out of the public repo and off the live site
-second-brain/
