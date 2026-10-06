@@ -100,7 +100,7 @@
     </figure>
 
     <h2>Occupancy: one registry so nothing grows out of a rock</h2>
-    <p>The first thing that broke when the world got busier was placement. Trees grew out of boulders; fallen logs landed on top of artifacts; every system avoided every other system with its own ad-hoc, slightly-wrong logic. The fix was a single shared <strong>occupancy registry</strong>: every fixed structure — ridges, the camp, the poles, the props — reserves a circular footprint <em>before</em> the scatter systems run, and the trees and rocks then ask "is this spot free?" before placing themselves. First to reserve wins; the order things are registered is the priority order.</p>
+    <p>The first thing that broke when the world got busier was placement. Trees grew out of boulders; fallen logs landed on top of artifacts; every system avoided every other system with its own ad hoc, slightly wrong logic. The fix was a single shared <strong>occupancy registry</strong>: every fixed structure — ridges, the camp, the poles, the props — reserves a circular footprint <em>before</em> the scatter systems run, and the trees and rocks then ask "is this spot free?" before placing themselves. First to reserve wins; the order things are registered is the priority order.</p>
     <p>The part I'm happiest with is that it <strong>verifies itself</strong>. Every time the world regenerates, it prints an audit to the console: either "OK, no overlaps" or a warning with the exact coordinate of the collision. A whole category of "why is that tree inside that rock" bugs just stopped happening, because the world now checks its own work on every run.</p>
 
     <h2>Clearings, burn scars, and the no-green rule</h2>

@@ -10,8 +10,8 @@
       "JavaScript",
       "Manifest V3"
     ],
-    "description": "Chrome extension for YouTube: millisecond timestamps, jump-to-timestamp, A→B interval timer, one-click copy and watch time stats",
-    "descriptionRu": "Расширение для YouTube: миллисекундные таймкоды, переход к таймкоду, A→B интервалы, копирование в один клик и статистика просмотра"
+    "description": "Chrome extension for YouTube: millisecond timestamps, jump-to-timestamp, A→B interval timer, one-click copy and watch-time stats",
+    "descriptionRu": "Расширение для YouTube: миллисекундные таймкоды, переход к таймкоду, интервалы A→B, копирование в один клик и статистика просмотра"
   },
   {
     "name": "Motivation Counter",
