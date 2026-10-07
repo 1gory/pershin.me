@@ -193,11 +193,8 @@ document.addEventListener('DOMContentLoaded', function() {
       console.log('✅ Projects loaded successfully:', projects.length, 'projects');
     })
     .catch(error => {
+      // Keep the static project list in #loading-indicator as the fallback.
       console.error('❌ Error loading projects:', error);
-      if (loadingIndicator) {
-        loadingIndicator.textContent = 'Failed to load projects. Please try refreshing the page.';
-        loadingIndicator.style.color = '#dc3545'; // Bootstrap danger color
-      }
     });
 
   // Set current year in footer
