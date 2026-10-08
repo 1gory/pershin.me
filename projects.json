@@ -52,7 +52,8 @@
       "Manifest V3"
     ],
     "description": "Chrome extension for learning English words in context: save words and phrases as you read, get a Russian translation on your device, and see them highlighted on every page in all their forms",
-    "descriptionRu": "Расширение Chrome для изучения английских слов в контексте: сохраняйте слова и фразы при чтении, получайте перевод на русский прямо на устройстве и видите их подсвеченными на всех страницах во всех формах"
+    "descriptionRu": "Расширение Chrome для изучения английских слов в контексте: сохраняйте слова и фразы при чтении, получайте перевод на русский прямо на устройстве и смотрите, как они подсвечиваются на всех страницах во всех формах",
+    "github": "https://github.com/1gory/lexbox"
   },
   {
     "name": "Too Far Gone",
