@@ -42,6 +42,19 @@
     "descriptionRu": "Уютная неспешная игра в панели браузера: выращивайте растение в попапе примерно за месяц — поливайте, подрезайте и пересаживайте; оно растёт в реальном времени, даже когда попап закрыт"
   },
   {
+    "name": "Lexbox",
+    "homepage": "https://ipershin.me/lexbox/",
+    "img": "lexbox.jpg",
+    "technologies": [
+      "Chrome Extension",
+      "TypeScript",
+      "Preact",
+      "Manifest V3"
+    ],
+    "description": "Chrome extension for learning English words in context: save words and phrases as you read, get a Russian translation on your device, and see them highlighted on every page in all their forms",
+    "descriptionRu": "Расширение Chrome для изучения английских слов в контексте: сохраняйте слова и фразы при чтении, получайте перевод на русский прямо на устройстве и видите их подсвеченными на всех страницах во всех формах"
+  },
+  {
     "name": "Too Far Gone",
     "homepage": "https://ipershin.me/too-far-gone/",
     "img": "too-far-gone.jpg",
