@@ -3,14 +3,19 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Lexbox — learn English words in context by Igor Pershin</title>
+  <title>Lexbox — learn English words from what you read | Igor Pershin</title>
   <meta name="description"
-        content="Save English words and phrases as you read, with a Russian translation. Lexbox highlights them on every page in all their forms, translation on hover. Translation runs on your device. No data collected.">
+        content="A free Chrome extension for learning English in context: save words and phrases as you read, get a Russian translation made on your device, and see them highlighted on every page in all their forms. No account, no data collected.">
   <link rel="canonical" href="https://ipershin.me/lexbox/">
+  <link rel="alternate" hreflang="en" href="https://ipershin.me/lexbox/">
+  <link rel="alternate" hreflang="ru" href="https://ipershin.me/ru/lexbox/">
+  <link rel="alternate" hreflang="x-default" href="https://ipershin.me/lexbox/">
 
   <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="ru_RU">
   <meta property="og:title" content="Lexbox">
-  <meta property="og:description" content="Save English words as you read and see them highlighted on every page, with a Russian translation on hover. Private: everything stays on your device.">
+  <meta property="og:description" content="Save English words as you read and meet them again on every page, highlighted, with a Russian translation on hover. Everything stays on your device.">
   <meta property="og:url" content="https://ipershin.me/lexbox/">
   <meta property="og:image" content="https://ipershin.me/img/projects/lexbox.jpg">
   <meta name="twitter:card" content="summary_large_image">
@@ -37,7 +42,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet"></noscript>
   <link rel="stylesheet" href="/style.css?v=1.3">
-  <link rel="stylesheet" href="/landing.css?v=1.0">
+  <link rel="stylesheet" href="/landing.css?v=1.1">
 
   <!-- Yandex.Metrika counter -->
   <script type="text/javascript">
@@ -56,12 +61,23 @@
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": "Lexbox",
+    "description": "Save English words as you read and meet them again on every page, highlighted, with a Russian translation on hover. Everything stays on your device.",
+    "inLanguage": "en",
     "applicationCategory": "EducationalApplication",
     "operatingSystem": "Chrome",
     "url": "https://ipershin.me/lexbox/",
     "image": "https://ipershin.me/img/projects/lexbox.jpg",
-    "author": { "@type": "Person", "name": "Igor Pershin", "url": "https://ipershin.me/" },
-    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    "author": {
+      "@type": "Person",
+      "@id": "https://ipershin.me/#person",
+      "name": "Igor Pershin",
+      "url": "https://ipershin.me/"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
   }
   </script>
 </head>
@@ -69,51 +85,108 @@
 
 <div class="landing-wrap">
   <nav class="crumb" aria-label="Breadcrumb">
-    <a href="/" data-goal="landing_back_click" data-goal-params='{"project_name":"Lexbox"}'>← Igor Pershin</a>
+    <a href="/" data-goal="landing_back_click" data-goal-params='{"project_name": "Lexbox", "lang": "en"}'>← Igor Pershin</a>
+    <a class="lang-switch" href="/ru/lexbox/" hreflang="ru" lang="ru" data-goal="lang_switch_click" data-goal-params='{"project_name": "Lexbox", "lang": "en"}'>Русский</a>
   </nav>
 
   <header class="landing-header">
     <img class="logo" src="/lexbox/icon.png" alt="Lexbox icon" width="80" height="80">
     <h1>Lexbox</h1>
-    <p class="tagline">Learn English words from the texts you actually read. Save a word with a Russian translation, and Lexbox highlights it on every page you open, translation on hover.</p>
-    <p class="text-muted">Coming soon to the Chrome Web Store</p>
+    <p class="tagline">Learn English from the texts you already read. Save an unfamiliar word with its Russian translation, and Lexbox highlights it every time it shows up again, in any form, translation on hover.</p>
+    <p class="text-muted">Coming soon to the Chrome Web Store. Until then, install it from the <a href="https://github.com/1gory/lexbox/releases" target="_blank" rel="noopener">ZIP on GitHub</a>.</p>
     <div class="hero-shot">
       <img src="/img/projects/lexbox.jpg" alt="Lexbox highlighting saved words in an article, with a translation tooltip" loading="lazy">
     </div>
   </header>
 
   <main>
+    <h2 class="section-title">Words stick when you meet them again</h2>
+    <div class="landing-lead">
+      <p>Flashcard apps take a word out of its sentence and ask you to drill it somewhere else. Lexbox works the other way round: you save a word where you found it, and then you keep running into it, in the news, in documentation, in a forum thread, highlighted, with the translation one hover away.</p>
+      <p>Every one of those meetings is a small repetition you didn’t have to schedule.</p>
+    </div>
+
+    <h2 class="section-title">What people use it for</h2>
+    <div class="about-grid">
+      <div class="about-item">
+        <h3>Reading in English for work</h3>
+        <p>Documentation, articles, pull requests, newsletters. Save the words that slow you down and stop looking them up twice.</p>
+      </div>
+      <div class="about-item">
+        <h3>Phrasal verbs and idioms</h3>
+        <p>Save “put up with” once and Lexbox recognises “putting up with” and “put up with it” later. The tricky multi-word stuff is where it helps most.</p>
+      </div>
+      <div class="about-item">
+        <h3>Building an Anki deck</h3>
+        <p>Export your words as CSV with the translation and the original sentence, and import them into Anki or a spreadsheet.</p>
+      </div>
+      <div class="about-item">
+        <h3>Studying in private</h3>
+        <p>No account and no cloud. Your list of unknown words is nobody’s business but yours.</p>
+      </div>
+    </div>
+
+    <h2 class="section-title">Features</h2>
     <div class="features">
       <div class="feature">
-        <h2>Save in one click</h2>
-        <p>Select a word or phrase and click the small + button, press Alt+S, or use the right-click menu item "Add to Lexbox".</p>
+        <h3>Save in one click</h3>
+        <p>Select a word or phrase and click the small + button, press <kbd>Alt</kbd>+<kbd>S</kbd>, or choose “Add to Lexbox” in the right-click menu.</p>
       </div>
       <div class="feature">
-        <h2>Translation on your device</h2>
-        <p>In Chrome 138 or later, Lexbox translates English into Russian with Chrome's built-in translator. You can edit the result or type your own.</p>
+        <h3>Translation on your device</h3>
+        <p>In Chrome 138 or later, Lexbox translates English into Russian with Chrome’s built-in translator. You can edit the result or type your own.</p>
       </div>
       <div class="feature">
-        <h2>Context sentences</h2>
+        <h3>Context sentences</h3>
         <p>Lexbox keeps the sentence the word came from, together with the page title and a link back to the page.</p>
       </div>
       <div class="feature">
-        <h2>Highlights in every form</h2>
-        <p>Save "run" and Lexbox also marks "running" and "ran"; save "put up with" and it marks "putting up with". Hover a highlight to see the translation.</p>
+        <h3>Highlights in every form</h3>
+        <p>Save “run” and Lexbox also marks “running” and “ran”. Hover any highlight to see the translation.</p>
       </div>
       <div class="feature">
-        <h2>Your dictionary</h2>
-        <p>Search, edit and delete words, and read every saved sentence. Back up and restore as a JSON file, or export CSV for Anki or a spreadsheet.</p>
+        <h3>Your dictionary</h3>
+        <p>Search, edit and delete words and reread every saved sentence. Back up to JSON, restore, or export CSV.</p>
       </div>
       <div class="feature">
-        <h2>Completely private</h2>
+        <h3>Completely private</h3>
         <p>No account, no analytics, no network requests. Your words stay in your browser on this device.</p>
       </div>
     </div>
 
-    <p class="text-center text-muted small">The interface is in English and Russian. Current limits: translation is English to Russian only; Lexbox works in the main page, not in embedded frames, PDFs or browser pages; the dictionary is not synced between devices, so use the JSON backup to move it.</p>
+    <h2 class="section-title">How it works</h2>
+    <ol class="steps">
+      <li><strong>Select a word you don’t know</strong>Click the + next to the selection, press <kbd>Alt</kbd>+<kbd>S</kbd>, or use the right-click menu.</li>
+      <li><strong>Check the translation and save</strong>It fills in automatically in Chrome 138+. The first time, Chrome may ask to download its English–Russian language pack.</li>
+      <li><strong>Keep reading</strong>From now on the word is softly highlighted on every page where it appears. Hover it when you forget.</li>
+    </ol>
+
+    <h2 class="section-title">Questions</h2>
+    <div class="faq">
+      <details>
+        <summary>Which version of Chrome do I need?</summary>
+        <p>Any recent one. Automatic translation needs Chrome 138 or later; in older versions you type the translation yourself and everything else works the same.</p>
+      </details>
+      <details>
+        <summary>Which languages does it support?</summary>
+        <p>English to Russian for now. The interface is in English and Russian.</p>
+      </details>
+      <details>
+        <summary>Is anything sent over the internet?</summary>
+        <p>No. The extension makes no network requests, and translation runs on your device. One honest caveat: highlighting uses the browser’s CSS Custom Highlight API, so a page’s own scripts can see which words on that page are highlighted. More in the <a href="/lexbox/privacy/">privacy policy</a>.</p>
+      </details>
+      <details>
+        <summary>Can I move my dictionary to another computer?</summary>
+        <p>Yes, with the JSON backup: export on one, import on the other. There is no automatic sync.</p>
+      </details>
+      <details>
+        <summary>Where doesn’t it work?</summary>
+        <p>Inside embedded frames, in PDFs, on browser pages and in the Chrome Web Store.</p>
+      </details>
+    </div>
 
     <div class="links">
-      <a href="https://github.com/1gory/lexbox" target="_blank" rel="noopener" data-goal="github_click" data-goal-params='{"project_name":"Lexbox"}'>
+      <a href="https://github.com/1gory/lexbox" target="_blank" rel="noopener" data-goal="github_click" data-goal-params='{"project_name": "Lexbox", "lang": "en"}'>
         <div class="link-text"><strong>GitHub</strong><span>Source code and releases</span></div>
         <span class="link-arrow">›</span>
       </a>

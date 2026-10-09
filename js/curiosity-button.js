@@ -20,7 +20,7 @@
       this.disabled = true;
       this.classList.remove('btn-primary');
       this.classList.add('btn-secondary');
-      this.textContent = 'Clicked!';
+      this.textContent = this.dataset.clickedText || 'Clicked!';
 
       curiosityMessage.style.display = 'block';
       curiosityMessage.style.opacity = '0';

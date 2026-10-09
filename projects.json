@@ -10,7 +10,8 @@
       "JavaScript"
     ],
     "description": "Chrome extension for YouTube: millisecond timestamps, jump-to-timestamp, A→B interval timer, one-click copy and watch-time stats",
-    "descriptionRu": "Расширение для YouTube: миллисекундные таймкоды, переход к таймкоду, интервалы A→B, копирование в один клик и статистика просмотра"
+    "descriptionRu": "Расширение для YouTube: миллисекундные таймкоды, переход к таймкоду, интервалы A→B, копирование в один клик и статистика просмотра",
+    "homepageRu": "https://ipershin.me/ru/youtube-milliseconds-timer/"
   },
   {
     "name": "Motivation Counter",
@@ -23,7 +24,8 @@
       "JavaScript"
     ],
     "description": "Chrome extension that replaces the new tab page with a real-time motivation counter: your age, a countdown to a date, or to the end of the year",
-    "descriptionRu": "Расширение, заменяющее новую вкладку счётчиком мотивации в реальном времени: возраст, обратный отсчёт до даты или до конца года"
+    "descriptionRu": "Расширение, заменяющее новую вкладку счётчиком мотивации в реальном времени: возраст, обратный отсчёт до даты или до конца года",
+    "homepageRu": "https://ipershin.me/ru/motivation-counter/"
   },
   {
     "name": "My Little Plant",
@@ -36,7 +38,8 @@
       "JavaScript"
     ],
     "description": "A cozy, low-pressure browser game living in your toolbar: grow a real plant in the popup over about a month — water, trim and repot it as it grows in real time, even with the popup closed",
-    "descriptionRu": "Уютная неспешная игра в панели браузера: выращивайте растение в попапе примерно за месяц — поливайте, подрезайте и пересаживайте; оно растёт в реальном времени, даже когда попап закрыт"
+    "descriptionRu": "Уютная неспешная игра в панели браузера: вырастите растение во всплывающем окне примерно за месяц — поливайте, подрезайте и пересаживайте; оно растёт в реальном времени, даже когда окно закрыто",
+    "homepageRu": "https://ipershin.me/ru/my-little-plant/"
   },
   {
     "name": "Lexbox",
@@ -49,7 +52,8 @@
     ],
     "description": "Chrome extension for learning English words in context: save words and phrases as you read, get a Russian translation on your device, and see them highlighted on every page in all their forms",
     "descriptionRu": "Расширение Chrome для изучения английских слов в контексте: сохраняйте слова и фразы при чтении, получайте перевод на русский прямо на устройстве и смотрите, как они подсвечиваются на всех страницах во всех формах",
-    "github": "https://github.com/1gory/lexbox"
+    "github": "https://github.com/1gory/lexbox",
+    "homepageRu": "https://ipershin.me/ru/lexbox/"
   },
   {
     "name": "Too Far Gone",
@@ -62,6 +66,7 @@
       "Pixel art"
     ],
     "description": "An atmospheric, story-driven pixel-art game set in a silent post-apocalyptic wasteland — you wake with no memory and one certainty: you can't stay. In development, built solo in Godot, with an open devlog.",
-    "descriptionRu": "Атмосферная сюжетная пиксельная игра в безмолвной постапокалиптической пустоши — герой очнулся без памяти, зная одно: оставаться здесь нельзя. В разработке, делается соло на Godot, с открытым девлогом."
+    "descriptionRu": "Атмосферная сюжетная пиксельная игра в безмолвной постапокалиптической пустоши — герой очнулся без памяти, зная одно: оставаться здесь нельзя. В разработке, делается соло на Godot, с открытым девлогом.",
+    "statusRu": "В разработке"
   }
 ]

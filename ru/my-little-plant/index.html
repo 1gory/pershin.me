@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Little Plant — уютная игра про растение в Chrome | Игорь Першин</title>
+  <meta name="description"
+        content="Бесплатная спокойная браузерная игра: вырастите растение во всплывающем окне Chrome примерно за месяц. Выберите тайное семя и горшок, поливайте, подрезайте и пересаживайте — оно растёт в реальном времени. Без уведомлений, данные не собираются.">
+  <link rel="canonical" href="https://ipershin.me/ru/my-little-plant/">
+  <link rel="alternate" hreflang="en" href="https://ipershin.me/my-little-plant/">
+  <link rel="alternate" hreflang="ru" href="https://ipershin.me/ru/my-little-plant/">
+  <link rel="alternate" hreflang="x-default" href="https://ipershin.me/my-little-plant/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:title" content="My Little Plant">
+  <meta property="og:description" content="Маленькая спокойная игра на панели браузера: посадите семя, ухаживайте за ним по паре секунд в день и примерно через месяц узнайте, что выросло.">
+  <meta property="og:url" content="https://ipershin.me/ru/my-little-plant/">
+  <meta property="og:image" content="https://ipershin.me/img/projects/my-little-plant.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <style>
+    :root { --bg-color: #fefdfb; --text-color: #212529; --card-bg: #fff; --border-color: #dee2e6; --muted-color: #6c757d; }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg-color: #1a1a1a; --text-color: #e9ecef; --card-bg: #2d2d2d; --border-color: #495057; --muted-color: #adb5bd; }
+    }
+    .dark-theme { --bg-color: #1a1a1a; --text-color: #e9ecef; --card-bg: #2d2d2d; --border-color: #495057; --muted-color: #adb5bd; }
+    .light-theme { --bg-color: #fefdfb; --text-color: #212529; --card-bg: #fff; --border-color: #dee2e6; --muted-color: #6c757d; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; margin: 0; background-color: var(--bg-color); color: var(--text-color); transition: background-color 0.3s ease, color 0.3s ease; }
+  </style>
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"></noscript>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet"></noscript>
+  <link rel="stylesheet" href="/style.css?v=1.3">
+  <link rel="stylesheet" href="/landing.css?v=1.1">
+
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+      m[i].l=1*new Date();
+      for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+      k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+    ym(65479363, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true });
+  </script>
+  <noscript><div><img src="https://mc.yandex.ru/watch/65479363" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+  <!-- /Yandex.Metrika counter -->
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "GameApplication",
+    "name": "My Little Plant",
+    "description": "Маленькая спокойная игра на панели браузера: посадите семя, ухаживайте за ним по паре секунд в день и примерно через месяц узнайте, что выросло.",
+    "inLanguage": "ru",
+    "applicationCategory": "GameApplication",
+    "operatingSystem": "Chrome",
+    "url": "https://ipershin.me/ru/my-little-plant/",
+    "downloadUrl": "https://chromewebstore.google.com/detail/my-little-plant/nmfppnlojcllbcokdpbcfaofhdbckoaa",
+    "image": "https://ipershin.me/img/projects/my-little-plant.jpg",
+    "author": {
+      "@type": "Person",
+      "@id": "https://ipershin.me/#person",
+      "name": "Игорь Першин",
+      "url": "https://ipershin.me/ru/"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+</head>
+<body>
+
+<div class="landing-wrap">
+  <nav class="crumb" aria-label="Breadcrumb">
+    <a href="/ru/" data-goal="landing_back_click" data-goal-params='{"project_name": "My Little Plant", "lang": "ru"}'>← Игорь Першин</a>
+    <a class="lang-switch" href="/my-little-plant/" hreflang="en" lang="en" data-goal="lang_switch_click" data-goal-params='{"project_name": "My Little Plant", "lang": "ru"}'>English</a>
+  </nav>
+
+  <header class="landing-header">
+    <img class="logo" src="/my-little-plant/icon.png" alt="Значок My Little Plant" width="80" height="80">
+    <h1>My Little Plant</h1>
+    <p class="tagline">Маленькая спокойная игра на панели браузера. Посадите семя, ухаживайте за ним по паре секунд в день и примерно через месяц узнайте, что вы всё это время выращивали.</p>
+    <a class="cws-badge" href="https://chromewebstore.google.com/detail/my-little-plant/nmfppnlojcllbcokdpbcfaofhdbckoaa" target="_blank" rel="noopener" data-goal="cws_install_click" data-goal-params='{"project_name": "My Little Plant", "lang": "ru"}'>
+      <img src="/img/chrome-webstore-badge.svg" alt="Доступно в Chrome Web Store" width="206" height="60">
+    </a>
+    <div class="hero-shot">
+      <img src="/img/projects/my-little-plant.jpg" alt="My Little Plant: пиксельное растение в горшке во всплывающем окне браузера" loading="lazy">
+    </div>
+  </header>
+
+  <main>
+    <h2 class="section-title">Игра на месяц, по нескольку секунд за раз</h2>
+    <div class="landing-lead">
+      <p>Большинство игр хотят ваш вечер. My Little Plant хочет десять секунд между делами. Растение растёт в реальном времени, даже когда окно закрыто: открыли его за утренним кофе, увидели, что земля подсохла, полили, закрыли.</p>
+      <p>Никаких уведомлений и напоминаний. Если забыть надолго, растение начнёт вянуть — и именно поэтому так приятно, когда не забываешь.</p>
+    </div>
+
+    <h2 class="section-title">Почему это работает</h2>
+    <div class="about-grid">
+      <div class="about-item">
+        <h3>Перерыв, который остаётся коротким</h3>
+        <p>Открыть, посмотреть, полить, закрыть. Пауза между делами, которая не превращается в час ленты.</p>
+      </div>
+      <div class="about-item">
+        <h3>Повод вернуться</h3>
+        <p>Каждый день растение немного другое: новый лист, сухой лист, который пора подрезать, корни, которым тесно в горшке.</p>
+      </div>
+      <div class="about-item">
+        <h3>Маленькая загадка</h3>
+        <p>Семя выбирается по подсказке — любит солнце, не боится холода, пьёт много воды, растёт не спеша, — и только финал покажет, что это было.</p>
+      </div>
+      <div class="about-item">
+        <h3>Без давления</h3>
+        <p>Ни таймеров, ни покупок, ни серий, которые жалко прервать. Не вышло — посадите новое.</p>
+      </div>
+    </div>
+
+    <h2 class="section-title">Возможности</h2>
+    <div class="features">
+      <div class="feature">
+        <h3>Четыре тайных семени</h3>
+        <p>У каждого подсказка вместо названия. Одни прорастают за пару недель, другим нужно до двух месяцев.</p>
+      </div>
+      <div class="feature">
+        <h3>Горшок имеет значение</h3>
+        <p>Терракота, керамика, дерево или пластик. Каждый держит влагу по-своему, так что от горшка зависит ритм полива.</p>
+      </div>
+      <div class="feature">
+        <h3>Настоящий уход</h3>
+        <p>Поливайте, когда земля подсохла, но без фанатизма: перелив тоже вредит. Подрезайте сухие листья и пересаживайте, когда корням тесно.</p>
+      </div>
+      <div class="feature">
+        <h3>Погода и прогноз</h3>
+        <p>Солнце, жара, холод и дожди меняют, как быстро сохнет земля и растёт растение. Небольшой прогноз помогает планировать.</p>
+      </div>
+      <div class="feature">
+        <h3>Финал</h3>
+        <p>Доведите растение до конца, и игра покажет, что вы вырастили, сколько дней это заняло и как прошла игра.</p>
+      </div>
+      <div class="feature">
+        <h3>Полная приватность</h3>
+        <p>Ни аккаунта, ни слежки, ни сетевых запросов. Ваше растение живёт в этом браузере.</p>
+      </div>
+    </div>
+
+    <h2 class="section-title">Как это работает</h2>
+    <ol class="steps">
+      <li><strong>Установите и закрепите значок</strong>Нажмите значок пазла на панели Chrome и закрепите My Little Plant, чтобы горшок был в одном клике.</li>
+      <li><strong>Выберите семя и горшок</strong>Прочитайте подсказки, выберите и посадите. Время пошло.</li>
+      <li><strong>Заглядывайте, когда удобно</strong>Растение растёт, пока окно закрыто, и при открытии догоняет текущий момент.</li>
+    </ol>
+
+    <h2 class="section-title">Вопросы</h2>
+    <div class="faq">
+      <details>
+        <summary>Нужно играть каждый день?</summary>
+        <p>Игра рассчитана на короткий заход почти каждый день. Как быстро сохнет земля, решают горшок и погода, так что один занятый день — не беда.</p>
+      </details>
+      <details>
+        <summary>Будут уведомления?</summary>
+        <p>Нет. Помнить о растении — часть игры.</p>
+      </details>
+      <details>
+        <summary>Что, если растение погибнет?</summary>
+        <p>Вы увидите, докуда оно дошло, и сразу сможете посадить новое семя.</p>
+      </details>
+      <details>
+        <summary>Растение переедет со мной на другой компьютер?</summary>
+        <p>Нет. Сохранение живёт только в этом браузере и не синхронизируется.</p>
+      </details>
+      <details>
+        <summary>Это бесплатно?</summary>
+        <p>Да, бесплатно и с открытым кодом под лицензией MIT. Код — на <a href="https://github.com/1gory/my-little-plant" target="_blank" rel="noopener">GitHub</a>.</p>
+      </details>
+    </div>
+
+    <div class="links">
+      <a href="https://chromewebstore.google.com/detail/my-little-plant/nmfppnlojcllbcokdpbcfaofhdbckoaa" target="_blank" rel="noopener" data-goal="cws_install_click" data-goal-params='{"project_name": "My Little Plant", "lang": "ru"}'>
+        <div class="link-text"><strong>Chrome Web Store</strong><span>Установить расширение</span></div>
+        <span class="link-arrow">›</span>
+      </a>
+      <a href="https://github.com/1gory/my-little-plant" target="_blank" rel="noopener" data-goal="github_click" data-goal-params='{"project_name": "My Little Plant", "lang": "ru"}'>
+        <div class="link-text"><strong>GitHub</strong><span>Исходный код и релизы</span></div>
+        <span class="link-arrow">›</span>
+      </a>
+      <a href="https://github.com/1gory/my-little-plant/releases" target="_blank" rel="noopener">
+        <div class="link-text"><strong>Релизы</strong><span>ZIP-архив для ручной установки</span></div>
+        <span class="link-arrow">›</span>
+      </a>
+      <a href="/my-little-plant/privacy/" hreflang="en">
+        <div class="link-text"><strong>Политика конфиденциальности</strong><span>Данные не собираются, всё остаётся на устройстве (текст на английском)</span></div>
+        <span class="link-arrow">›</span>
+      </a>
+      <a href="https://github.com/1gory/my-little-plant/blob/main/LICENSE" target="_blank" rel="noopener">
+        <div class="link-text"><strong>Лицензия MIT</strong><span>Открытый код · © Игорь Першин</span></div>
+        <span class="link-arrow">›</span>
+      </a>
+    </div>
+  </main>
+</div>
+
+<footer class="text-center py-4 mt-5 border-top">
+  <p class="mb-1"><span id="current-year"></span> © <a href="/ru/" class="text-reset">Игорь Першин</a></p>
+  <p class="text-muted small mb-0">Просто ещё один человек, который пытается выжить</p>
+</footer>
+
+<button class="btn btn-sm btn-outline-secondary position-fixed" style="top: 20px; right: 20px; z-index: 1000;" id="theme-toggle" aria-label="Сменить тему">🌓</button>
+
+<script src="/js/theme.js?v=1.0" defer></script>
+</body>
+</html>

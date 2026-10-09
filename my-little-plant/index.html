@@ -3,14 +3,19 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>My Little Plant — cozy Chrome browser game by Igor Pershin</title>
+  <title>My Little Plant — a cozy plant game in your Chrome toolbar | Igor Pershin</title>
   <meta name="description"
-        content="A cozy, low-pressure browser game in your toolbar: pick a seed, choose a pot, water and trim it, and grow a real plant over about a month — even with the popup closed. No data collected.">
+        content="A free, calm browser game: grow one plant in a Chrome popup over about a month. Pick a secret seed and a pot, then water, trim and repot as it grows in real time. No notifications, no data collected.">
   <link rel="canonical" href="https://ipershin.me/my-little-plant/">
+  <link rel="alternate" hreflang="en" href="https://ipershin.me/my-little-plant/">
+  <link rel="alternate" hreflang="ru" href="https://ipershin.me/ru/my-little-plant/">
+  <link rel="alternate" hreflang="x-default" href="https://ipershin.me/my-little-plant/">
 
   <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="ru_RU">
   <meta property="og:title" content="My Little Plant">
-  <meta property="og:description" content="Grow your own plant in a browser popup: pick a seed, water it, watch the weather. A cozy tamagotchi played over a month.">
+  <meta property="og:description" content="A small, calm game in your toolbar: plant a seed, look after it for a few seconds a day, and in about a month find out what you have been growing.">
   <meta property="og:url" content="https://ipershin.me/my-little-plant/">
   <meta property="og:image" content="https://ipershin.me/img/projects/my-little-plant.jpg">
   <meta name="twitter:card" content="summary_large_image">
@@ -37,7 +42,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet"></noscript>
   <link rel="stylesheet" href="/style.css?v=1.3">
-  <link rel="stylesheet" href="/landing.css?v=1.0">
+  <link rel="stylesheet" href="/landing.css?v=1.1">
 
   <!-- Yandex.Metrika counter -->
   <script type="text/javascript">
@@ -56,13 +61,24 @@
     "@context": "https://schema.org",
     "@type": "GameApplication",
     "name": "My Little Plant",
+    "description": "A small, calm game in your toolbar: plant a seed, look after it for a few seconds a day, and in about a month find out what you have been growing.",
+    "inLanguage": "en",
     "applicationCategory": "GameApplication",
     "operatingSystem": "Chrome",
     "url": "https://ipershin.me/my-little-plant/",
     "downloadUrl": "https://chromewebstore.google.com/detail/my-little-plant/nmfppnlojcllbcokdpbcfaofhdbckoaa",
     "image": "https://ipershin.me/img/projects/my-little-plant.jpg",
-    "author": { "@type": "Person", "name": "Igor Pershin", "url": "https://ipershin.me/" },
-    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    "author": {
+      "@type": "Person",
+      "@id": "https://ipershin.me/#person",
+      "name": "Igor Pershin",
+      "url": "https://ipershin.me/"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
   }
   </script>
 </head>
@@ -70,80 +86,126 @@
 
 <div class="landing-wrap">
   <nav class="crumb" aria-label="Breadcrumb">
-    <a href="/" data-goal="landing_back_click" data-goal-params='{"project_name":"My Little Plant"}'>← Igor Pershin</a>
+    <a href="/" data-goal="landing_back_click" data-goal-params='{"project_name": "My Little Plant", "lang": "en"}'>← Igor Pershin</a>
+    <a class="lang-switch" href="/ru/my-little-plant/" hreflang="ru" lang="ru" data-goal="lang_switch_click" data-goal-params='{"project_name": "My Little Plant", "lang": "en"}'>Русский</a>
   </nav>
 
   <header class="landing-header">
     <img class="logo" src="/my-little-plant/icon.png" alt="My Little Plant icon" width="80" height="80">
-    <h1>My Little Plant 🌱</h1>
-    <p class="tagline">Grow your own plant in a browser popup: pick a seed, water it, watch the weather. A cozy tamagotchi played over a month — it keeps growing even with the popup closed.</p>
-    <a class="cws-badge" href="https://chromewebstore.google.com/detail/my-little-plant/nmfppnlojcllbcokdpbcfaofhdbckoaa" target="_blank" rel="noopener" data-goal="cws_install_click" data-goal-params='{"project_name":"My Little Plant"}'>
+    <h1>My Little Plant</h1>
+    <p class="tagline">A small, calm game in your toolbar. Plant a seed, look after it for a few seconds a day, and in about a month find out what you have been growing.</p>
+    <a class="cws-badge" href="https://chromewebstore.google.com/detail/my-little-plant/nmfppnlojcllbcokdpbcfaofhdbckoaa" target="_blank" rel="noopener" data-goal="cws_install_click" data-goal-params='{"project_name": "My Little Plant", "lang": "en"}'>
       <img src="/img/chrome-webstore-badge.svg" alt="Available in the Chrome Web Store" width="206" height="60">
     </a>
     <div class="hero-shot">
-      <img src="/img/projects/my-little-plant.jpg" alt="My Little Plant growing in the browser popup" loading="lazy">
+      <img src="/img/projects/my-little-plant.jpg" alt="My Little Plant: a pixel-art plant in a pot inside the browser popup" loading="lazy">
     </div>
   </header>
 
   <main>
-    <div class="features">
-      <div class="feature">
-        <div class="feature-icon">🌰</div>
-        <h2>Pick a seed</h2>
-        <p>Four seeds, shown only by a hint — sun-lover, cold-hardy, thirsty, patient. What it really is stays a secret until the finale.</p>
+    <h2 class="section-title">A game that takes a month, a few seconds at a time</h2>
+    <div class="landing-lead">
+      <p>Most games want your evening. My Little Plant wants ten seconds between tasks. The plant grows in real time, even when the popup is closed: open it with your morning coffee, see the soil has dried, water it, close it.</p>
+      <p>There are no notifications and no reminders. Forget it for too long and it starts to wilt, which is exactly what makes remembering feel good.</p>
+    </div>
+
+    <h2 class="section-title">Why it works</h2>
+    <div class="about-grid">
+      <div class="about-item">
+        <h3>A break that stays small</h3>
+        <p>Open, check, water, close. A pause between tasks that doesn’t turn into an hour of scrolling.</p>
       </div>
-      <div class="feature">
-        <div class="feature-icon">🪴</div>
-        <h2>Choose a pot</h2>
-        <p>Terracotta, ceramic, wood, or plastic — each holds moisture differently, so your watering rhythm changes with your choice.</p>
+      <div class="about-item">
+        <h3>A reason to come back</h3>
+        <p>Each day the plant is a little different: a new leaf, a dry one to trim, roots that want a bigger pot.</p>
       </div>
-      <div class="feature">
-        <div class="feature-icon">💧</div>
-        <h2>Care for it</h2>
-        <p>Water when the soil dries, trim dried leaves, and repot into a deeper pot when the roots get cramped.</p>
+      <div class="about-item">
+        <h3>A little mystery</h3>
+        <p>You choose a seed by a hint (sun-lover, cold-hardy, thirsty, patient) and only the finale tells you what it was.</p>
       </div>
-      <div class="feature">
-        <div class="feature-icon">⛅</div>
-        <h2>Read the weather</h2>
-        <p>Sunny, hot, cold, and rainy spells change how fast your plant grows and the soil dries. A small forecast shows what's coming.</p>
-      </div>
-      <div class="feature">
-        <div class="feature-icon">🎉</div>
-        <h2>Reach the finale</h2>
-        <p>Grow it all the way and the game reveals which plant you raised and how many days it took. Wilt, and you can plant again.</p>
-      </div>
-      <div class="feature">
-        <div class="feature-icon">🔒</div>
-        <h2>Completely private</h2>
-        <p>No tracking, no analytics, no network requests. Your plant's state stays in your browser.</p>
+      <div class="about-item">
+        <h3>No pressure</h3>
+        <p>No timers to beat, nothing to buy, no streaks to lose. If the plant doesn’t make it, you plant another.</p>
       </div>
     </div>
 
+    <h2 class="section-title">Features</h2>
+    <div class="features">
+      <div class="feature">
+        <h3>Four secret seeds</h3>
+        <p>Each comes with a hint, not a name. Some sprout in a couple of weeks, others take up to two months.</p>
+      </div>
+      <div class="feature">
+        <h3>Pots that matter</h3>
+        <p>Terracotta, ceramic, wood or plastic. Each holds moisture differently, so the pot sets your watering rhythm.</p>
+      </div>
+      <div class="feature">
+        <h3>Real care</h3>
+        <p>Water when the soil dries, but not too much: overwatering hurts too. Trim dried leaves and repot when the roots get cramped.</p>
+      </div>
+      <div class="feature">
+        <h3>Weather and a forecast</h3>
+        <p>Sunny, hot, cold and rainy spells change how fast the soil dries and the plant grows. A small forecast helps you plan.</p>
+      </div>
+      <div class="feature">
+        <h3>A finale</h3>
+        <p>Grow it all the way and the game reveals which plant you raised, how many days it took and how the run went.</p>
+      </div>
+      <div class="feature">
+        <h3>Completely private</h3>
+        <p>No account, no tracking, no network requests. Your plant lives in this browser.</p>
+      </div>
+    </div>
+
+    <h2 class="section-title">How it works</h2>
+    <ol class="steps">
+      <li><strong>Install it and pin the icon</strong>Click the puzzle icon in Chrome’s toolbar and pin My Little Plant, so the pot is one click away.</li>
+      <li><strong>Pick a seed and a pot</strong>Read the hints, choose, and plant. The clock starts now.</li>
+      <li><strong>Check in when you like</strong>The plant keeps growing while the popup is closed and catches up to the present moment when you open it.</li>
+    </ol>
+
+    <h2 class="section-title">Questions</h2>
+    <div class="faq">
+      <details>
+        <summary>Do I have to play every day?</summary>
+        <p>A short check most days is the rhythm the game is built for. The pot and the weather decide how fast the soil dries, so there is room for a busy day.</p>
+      </details>
+      <details>
+        <summary>Will it send me notifications?</summary>
+        <p>No. Remembering is part of the game.</p>
+      </details>
+      <details>
+        <summary>What if my plant dies?</summary>
+        <p>You see how far it got, and you can plant a new seed right away.</p>
+      </details>
+      <details>
+        <summary>Does my plant follow me to another computer?</summary>
+        <p>No. The save lives only in this browser and is not synced.</p>
+      </details>
+      <details>
+        <summary>Is it free?</summary>
+        <p>Yes, free and open source under the MIT license. The code is on <a href="https://github.com/1gory/my-little-plant" target="_blank" rel="noopener">GitHub</a>.</p>
+      </details>
+    </div>
+
     <div class="links">
-      <a href="https://chromewebstore.google.com/detail/my-little-plant/nmfppnlojcllbcokdpbcfaofhdbckoaa" target="_blank" rel="noopener" data-goal="cws_install_click" data-goal-params='{"project_name":"My Little Plant"}'>
-        <div class="link-icon">🧩</div>
+      <a href="https://chromewebstore.google.com/detail/my-little-plant/nmfppnlojcllbcokdpbcfaofhdbckoaa" target="_blank" rel="noopener" data-goal="cws_install_click" data-goal-params='{"project_name": "My Little Plant", "lang": "en"}'>
         <div class="link-text"><strong>Chrome Web Store</strong><span>Install the extension</span></div>
         <span class="link-arrow">›</span>
       </a>
-      <a href="https://github.com/1gory/my-little-plant" target="_blank" rel="noopener" data-goal="github_click" data-goal-params='{"project_name":"My Little Plant"}'>
-        <div class="link-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577v-2.165c-3.338.726-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.73.083-.73 1.205.085 1.84 1.237 1.84 1.237 1.07 1.835 2.809 1.305 3.495.998.108-.776.418-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.468-2.38 1.235-3.22-.123-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.3 1.23a11.52 11.52 0 0 1 3-.404c1.02.005 2.047.138 3 .404 2.29-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.12 3.176.77.84 1.232 1.91 1.232 3.22 0 4.61-2.807 5.625-5.48 5.92.43.372.823 1.102.823 2.222v3.293c0 .322.218.694.825.576C20.565 21.796 24 17.298 24 12c0-6.63-5.37-12-12-12z"/></svg>
-        </div>
+      <a href="https://github.com/1gory/my-little-plant" target="_blank" rel="noopener" data-goal="github_click" data-goal-params='{"project_name": "My Little Plant", "lang": "en"}'>
         <div class="link-text"><strong>GitHub</strong><span>Source code and releases</span></div>
         <span class="link-arrow">›</span>
       </a>
       <a href="https://github.com/1gory/my-little-plant/releases" target="_blank" rel="noopener">
-        <div class="link-icon">📦</div>
         <div class="link-text"><strong>Releases</strong><span>Download a ZIP for manual installation</span></div>
         <span class="link-arrow">›</span>
       </a>
       <a href="/my-little-plant/privacy/">
-        <div class="link-icon">🔒</div>
         <div class="link-text"><strong>Privacy Policy</strong><span>No data collected — everything stays on your device</span></div>
         <span class="link-arrow">›</span>
       </a>
       <a href="https://github.com/1gory/my-little-plant/blob/main/LICENSE" target="_blank" rel="noopener">
-        <div class="link-icon">📄</div>
         <div class="link-text"><strong>MIT License</strong><span>Open source · © Igor Pershin</span></div>
         <span class="link-arrow">›</span>
       </a>

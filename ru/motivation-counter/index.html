@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Motivation Counter — счётчик возраста в новой вкладке Chrome | Игорь Першин</title>
+  <meta name="description"
+        content="Бесплатное расширение Chrome: новая вкладка превращается в живой счётчик — ваш возраст с девятью знаками после запятой, обратный отсчёт до даты и времени или до конца года. Цитата дня, шесть тем, данные не собираются.">
+  <link rel="canonical" href="https://ipershin.me/ru/motivation-counter/">
+  <link rel="alternate" hreflang="en" href="https://ipershin.me/motivation-counter/">
+  <link rel="alternate" hreflang="ru" href="https://ipershin.me/ru/motivation-counter/">
+  <link rel="alternate" hreflang="x-default" href="https://ipershin.me/motivation-counter/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:title" content="Motivation Counter">
+  <meta property="og:description" content="Каждая новая вкладка показывает, сколько времени прошло или сколько осталось: возраст в реальном времени или отсчёт до важной даты.">
+  <meta property="og:url" content="https://ipershin.me/ru/motivation-counter/">
+  <meta property="og:image" content="https://ipershin.me/img/projects/motivation-counter.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <style>
+    :root { --bg-color: #fefdfb; --text-color: #212529; --card-bg: #fff; --border-color: #dee2e6; --muted-color: #6c757d; }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg-color: #1a1a1a; --text-color: #e9ecef; --card-bg: #2d2d2d; --border-color: #495057; --muted-color: #adb5bd; }
+    }
+    .dark-theme { --bg-color: #1a1a1a; --text-color: #e9ecef; --card-bg: #2d2d2d; --border-color: #495057; --muted-color: #adb5bd; }
+    .light-theme { --bg-color: #fefdfb; --text-color: #212529; --card-bg: #fff; --border-color: #dee2e6; --muted-color: #6c757d; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; margin: 0; background-color: var(--bg-color); color: var(--text-color); transition: background-color 0.3s ease, color 0.3s ease; }
+  </style>
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"></noscript>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet"></noscript>
+  <link rel="stylesheet" href="/style.css?v=1.3">
+  <link rel="stylesheet" href="/landing.css?v=1.1">
+
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+      m[i].l=1*new Date();
+      for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+      k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+    ym(65479363, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true });
+  </script>
+  <noscript><div><img src="https://mc.yandex.ru/watch/65479363" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+  <!-- /Yandex.Metrika counter -->
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Motivation Counter",
+    "description": "Каждая новая вкладка показывает, сколько времени прошло или сколько осталось: возраст в реальном времени или отсчёт до важной даты.",
+    "inLanguage": "ru",
+    "applicationCategory": "BrowserApplication",
+    "operatingSystem": "Chrome",
+    "url": "https://ipershin.me/ru/motivation-counter/",
+    "downloadUrl": "https://chromewebstore.google.com/detail/motivation-counter/jgebglhbeenjoehfkglemcfaimddnggl",
+    "image": "https://ipershin.me/img/projects/motivation-counter.jpg",
+    "author": {
+      "@type": "Person",
+      "@id": "https://ipershin.me/#person",
+      "name": "Игорь Першин",
+      "url": "https://ipershin.me/ru/"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+</head>
+<body>
+
+<div class="landing-wrap">
+  <nav class="crumb" aria-label="Breadcrumb">
+    <a href="/ru/" data-goal="landing_back_click" data-goal-params='{"project_name": "Motivation Counter", "lang": "ru"}'>← Игорь Першин</a>
+    <a class="lang-switch" href="/motivation-counter/" hreflang="en" lang="en" data-goal="lang_switch_click" data-goal-params='{"project_name": "Motivation Counter", "lang": "ru"}'>English</a>
+  </nav>
+
+  <header class="landing-header">
+    <img class="logo" src="/motivation-counter/icon.png" alt="Значок Motivation Counter" width="80" height="80">
+    <h1>Motivation Counter</h1>
+    <p class="tagline">Каждая новая вкладка показывает, сколько времени прошло или сколько осталось: ваш возраст в реальном времени или обратный отсчёт до важной даты.</p>
+    <a class="cws-badge" href="https://chromewebstore.google.com/detail/motivation-counter/jgebglhbeenjoehfkglemcfaimddnggl" target="_blank" rel="noopener" data-goal="cws_install_click" data-goal-params='{"project_name": "Motivation Counter", "lang": "ru"}'>
+      <img src="/img/chrome-webstore-badge.svg" alt="Доступно в Chrome Web Store" width="206" height="60">
+    </a>
+    <div class="hero-shot">
+      <img src="/img/projects/motivation-counter.jpg" alt="Новая вкладка Motivation Counter со счётчиком возраста и цитатой дня" loading="lazy">
+    </div>
+  </header>
+
+  <main>
+    <h2 class="section-title">Время, которое видно</h2>
+    <div class="landing-lead">
+      <p>Вы открываете десятки новых вкладок в день, и каждая — пустая страница, на которую смотришь секунду. Motivation Counter ставит туда одно число: ваш возраст с бегущими знаками после запятой или время до дедлайна.</p>
+      <p>Оно не блокирует сайты, не шлёт уведомлений и не ведёт счёт. Оно просто делает время видимым — и этого часто хватает, чтобы закрыть ленту и вернуться к тому, ради чего открыли браузер.</p>
+    </div>
+
+    <h2 class="section-title">Для чего это нужно</h2>
+    <div class="about-grid">
+      <div class="about-item">
+        <h3>Дедлайн всегда перед глазами</h3>
+        <p>Запуск, экзамен, поездка. Укажите дату и, если важно, время: дедлайн в 18:30 отсчитывается до 18:30, а не до полуночи.</p>
+      </div>
+      <div class="about-item">
+        <h3>Год в перспективе</h3>
+        <p>Режим «До конца года» показывает, сколько года осталось. Трезвое число в октябре и стимул в декабре.</p>
+      </div>
+      <div class="about-item">
+        <h3>Тихое memento mori</h3>
+        <p>Ваш возраст в виде 34,123456789 года, последние цифры всё время бегут. Идея восходит к расширению Алекса Маккоу 2013 года; это новая версия с дополнительными режимами.</p>
+      </div>
+      <div class="about-item">
+        <h3>Спокойная новая вкладка</h3>
+        <p>Ни ленты новостей, ни сетки ярлыков, ни рекламы. Число, цитата по желанию и строка поиска по желанию.</p>
+      </div>
+    </div>
+
+    <h2 class="section-title">Возможности</h2>
+    <div class="features">
+      <div class="feature">
+        <h3>Три режима счётчика</h3>
+        <p>Возраст, до конца года или до любой выбранной даты. Всё обновляется в реальном времени.</p>
+      </div>
+      <div class="feature">
+        <h3>С точностью до времени суток</h3>
+        <p>Включите «Set time» для цели отсчёта или даты рождения, когда важен час. Без него даты работают как обычно.</p>
+      </div>
+      <div class="feature">
+        <h3>Цитата дня</h3>
+        <p>Каждый день новая цитата из коллекции больше чем в 1500 штук. Весь день она одна и та же, меняется в вашу полночь и отключается в настройках.</p>
+      </div>
+      <div class="feature">
+        <h3>Строка поиска по желанию</h3>
+        <p>Ищите прямо из новой вкладки через Google, DuckDuckGo, Bing, Яндекс, Yahoo или Brave — в той же вкладке или в новой. По умолчанию выключена.</p>
+      </div>
+      <div class="feature">
+        <h3>Под себя</h3>
+        <p>Шесть палитр (три светлые, три тёмные) или системная тема, шрифты Sans, Serif или Mono и три размера счётчика.</p>
+      </div>
+      <div class="feature">
+        <h3>Маленький счёт</h3>
+        <p>В настройках видно, сколько новых вкладок вы открыли с расширением. Нажмите номер версии рядом, чтобы посмотреть, что изменилось в последних релизах.</p>
+      </div>
+    </div>
+
+    <h2 class="section-title">Как это работает</h2>
+    <ol class="steps">
+      <li><strong>Установите расширение из Chrome Web Store</strong>Если Chrome спросит, оставить ли изменённую новую вкладку, оставьте её.</li>
+      <li><strong>Откройте новую вкладку и нажмите шестерёнку</strong>Она в правом нижнем углу и открывает настройки.</li>
+      <li><strong>Выберите режим и введите дату</strong>Дату рождения для счётчика возраста или целевую дату для отсчёта. Счётчик запускается сразу.</li>
+    </ol>
+
+    <h2 class="section-title">Вопросы</h2>
+    <div class="faq">
+      <details>
+        <summary>Моя дата рождения куда-то уходит?</summary>
+        <p>Нет. Она хранится в локальном хранилище браузера на этом устройстве. Расширение не делает сетевых запросов, не просит особых разрешений и работает офлайн. Подробнее — в <a href="/motivation-counter/privacy/" hreflang="en">политике конфиденциальности</a> (на английском).</p>
+      </details>
+      <details>
+        <summary>Как вернуть обычную новую вкладку?</summary>
+        <p>Выключите или удалите расширение на странице <code>chrome://extensions</code>.</p>
+      </details>
+      <details>
+        <summary>Строка поиска следит за запросами?</summary>
+        <p>Нет. Она просто открывает выбранный поисковик с вашим запросом; расширение не видит и не пересылает трафик.</p>
+      </details>
+      <details>
+        <summary>Это бесплатно?</summary>
+        <p>Да, бесплатно и с открытым кодом под лицензией MIT. Код — на <a href="https://github.com/1gory/motivation-age-counter-extension" target="_blank" rel="noopener">GitHub</a>.</p>
+      </details>
+    </div>
+
+    <div class="links">
+      <a href="https://chromewebstore.google.com/detail/motivation-counter/jgebglhbeenjoehfkglemcfaimddnggl" target="_blank" rel="noopener" data-goal="cws_install_click" data-goal-params='{"project_name": "Motivation Counter", "lang": "ru"}'>
+        <div class="link-text"><strong>Chrome Web Store</strong><span>Установить расширение</span></div>
+        <span class="link-arrow">›</span>
+      </a>
+      <a href="https://github.com/1gory/motivation-age-counter-extension" target="_blank" rel="noopener" data-goal="github_click" data-goal-params='{"project_name": "Motivation Counter", "lang": "ru"}'>
+        <div class="link-text"><strong>GitHub</strong><span>Исходный код и релизы</span></div>
+        <span class="link-arrow">›</span>
+      </a>
+      <a href="https://github.com/1gory/motivation-age-counter-extension/releases" target="_blank" rel="noopener">
+        <div class="link-text"><strong>Релизы</strong><span>ZIP-архив для ручной установки</span></div>
+        <span class="link-arrow">›</span>
+      </a>
+      <a href="/motivation-counter/privacy/" hreflang="en">
+        <div class="link-text"><strong>Политика конфиденциальности</strong><span>Данные не собираются, всё остаётся на устройстве (текст на английском)</span></div>
+        <span class="link-arrow">›</span>
+      </a>
+      <a href="https://github.com/1gory/motivation-age-counter-extension/blob/main/LICENSE" target="_blank" rel="noopener">
+        <div class="link-text"><strong>Лицензия MIT</strong><span>Открытый код · © Игорь Першин</span></div>
+        <span class="link-arrow">›</span>
+      </a>
+    </div>
+  </main>
+</div>
+
+<footer class="text-center py-4 mt-5 border-top">
+  <p class="mb-1"><span id="current-year"></span> © <a href="/ru/" class="text-reset">Игорь Першин</a></p>
+  <p class="text-muted small mb-0">Просто ещё один человек, который пытается выжить</p>
+</footer>
+
+<button class="btn btn-sm btn-outline-secondary position-fixed" style="top: 20px; right: 20px; z-index: 1000;" id="theme-toggle" aria-label="Сменить тему">🌓</button>
+
+<script src="/js/theme.js?v=1.0" defer></script>
+</body>
+</html>

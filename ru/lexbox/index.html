@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lexbox — английские слова из того, что вы читаете | Игорь Першин</title>
+  <meta name="description"
+        content="Бесплатное расширение Chrome для изучения английского в контексте: сохраняйте слова и фразы при чтении, получайте перевод на русский прямо на устройстве и встречайте их подсвеченными на всех страницах во всех формах. Без аккаунта, данные не собираются.">
+  <link rel="canonical" href="https://ipershin.me/ru/lexbox/">
+  <link rel="alternate" hreflang="en" href="https://ipershin.me/lexbox/">
+  <link rel="alternate" hreflang="ru" href="https://ipershin.me/ru/lexbox/">
+  <link rel="alternate" hreflang="x-default" href="https://ipershin.me/lexbox/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:title" content="Lexbox">
+  <meta property="og:description" content="Сохраняйте английские слова при чтении и встречайте их снова на любой странице — подсвеченными, с переводом при наведении. Всё остаётся на вашем устройстве.">
+  <meta property="og:url" content="https://ipershin.me/ru/lexbox/">
+  <meta property="og:image" content="https://ipershin.me/img/projects/lexbox.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <style>
+    :root { --bg-color: #fefdfb; --text-color: #212529; --card-bg: #fff; --border-color: #dee2e6; --muted-color: #6c757d; }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg-color: #1a1a1a; --text-color: #e9ecef; --card-bg: #2d2d2d; --border-color: #495057; --muted-color: #adb5bd; }
+    }
+    .dark-theme { --bg-color: #1a1a1a; --text-color: #e9ecef; --card-bg: #2d2d2d; --border-color: #495057; --muted-color: #adb5bd; }
+    .light-theme { --bg-color: #fefdfb; --text-color: #212529; --card-bg: #fff; --border-color: #dee2e6; --muted-color: #6c757d; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; margin: 0; background-color: var(--bg-color); color: var(--text-color); transition: background-color 0.3s ease, color 0.3s ease; }
+  </style>
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"></noscript>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet"></noscript>
+  <link rel="stylesheet" href="/style.css?v=1.3">
+  <link rel="stylesheet" href="/landing.css?v=1.1">
+
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+      m[i].l=1*new Date();
+      for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+      k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+    ym(65479363, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true });
+  </script>
+  <noscript><div><img src="https://mc.yandex.ru/watch/65479363" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+  <!-- /Yandex.Metrika counter -->
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Lexbox",
+    "description": "Сохраняйте английские слова при чтении и встречайте их снова на любой странице — подсвеченными, с переводом при наведении. Всё остаётся на вашем устройстве.",
+    "inLanguage": "ru",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "Chrome",
+    "url": "https://ipershin.me/ru/lexbox/",
+    "image": "https://ipershin.me/img/projects/lexbox.jpg",
+    "author": {
+      "@type": "Person",
+      "@id": "https://ipershin.me/#person",
+      "name": "Игорь Першин",
+      "url": "https://ipershin.me/ru/"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+</head>
+<body>
+
+<div class="landing-wrap">
+  <nav class="crumb" aria-label="Breadcrumb">
+    <a href="/ru/" data-goal="landing_back_click" data-goal-params='{"project_name": "Lexbox", "lang": "ru"}'>← Игорь Першин</a>
+    <a class="lang-switch" href="/lexbox/" hreflang="en" lang="en" data-goal="lang_switch_click" data-goal-params='{"project_name": "Lexbox", "lang": "ru"}'>English</a>
+  </nav>
+
+  <header class="landing-header">
+    <img class="logo" src="/lexbox/icon.png" alt="Значок Lexbox" width="80" height="80">
+    <h1>Lexbox</h1>
+    <p class="tagline">Учите английский по текстам, которые и так читаете. Сохраните незнакомое слово с переводом, и Lexbox будет подсвечивать его каждый раз, когда оно встретится снова, — в любой форме, с переводом при наведении.</p>
+    <p class="text-muted">Скоро в Chrome Web Store. А пока можно установить из <a href="https://github.com/1gory/lexbox/releases" target="_blank" rel="noopener">ZIP на GitHub</a>.</p>
+    <div class="hero-shot">
+      <img src="/img/projects/lexbox.jpg" alt="Lexbox подсвечивает сохранённые слова в статье и показывает перевод" loading="lazy">
+    </div>
+  </header>
+
+  <main>
+    <h2 class="section-title">Слова запоминаются, когда встречаешь их снова</h2>
+    <div class="landing-lead">
+      <p>Приложения с карточками вырывают слово из предложения и заставляют зубрить его отдельно. Lexbox работает наоборот: вы сохраняете слово там, где его нашли, а потом снова и снова натыкаетесь на него — в новостях, документации, ветке форума — подсвеченным, с переводом под курсором.</p>
+      <p>Каждая такая встреча — маленькое повторение, которое не нужно планировать.</p>
+    </div>
+
+    <h2 class="section-title">Для чего это нужно</h2>
+    <div class="about-grid">
+      <div class="about-item">
+        <h3>Английский по работе</h3>
+        <p>Документация, статьи, пул-реквесты, рассылки. Сохраняйте слова, на которых спотыкаетесь, и перестаньте искать их по второму разу.</p>
+      </div>
+      <div class="about-item">
+        <h3>Фразовые глаголы и идиомы</h3>
+        <p>Сохраните «put up with» один раз, и Lexbox узнает потом и «putting up with», и «put up with it». Именно с такими составными оборотами он помогает больше всего.</p>
+      </div>
+      <div class="about-item">
+        <h3>Колода для Anki</h3>
+        <p>Выгрузите слова в CSV вместе с переводом и исходным предложением и импортируйте в Anki или таблицу.</p>
+      </div>
+      <div class="about-item">
+        <h3>Учиться без свидетелей</h3>
+        <p>Ни аккаунта, ни облака. Ваш список незнакомых слов — только ваше дело.</p>
+      </div>
+    </div>
+
+    <h2 class="section-title">Возможности</h2>
+    <div class="features">
+      <div class="feature">
+        <h3>Сохранение в один клик</h3>
+        <p>Выделите слово или фразу и нажмите маленькую кнопку «+», клавиши <kbd>Alt</kbd>+<kbd>S</kbd> или пункт «Добавить в Lexbox» в контекстном меню.</p>
+      </div>
+      <div class="feature">
+        <h3>Перевод на устройстве</h3>
+        <p>В Chrome 138 и новее Lexbox переводит с английского на русский встроенным переводчиком Chrome. Перевод можно поправить или ввести свой.</p>
+      </div>
+      <div class="feature">
+        <h3>Предложения-контекст</h3>
+        <p>Lexbox запоминает предложение, где встретилось слово, вместе с заголовком страницы и ссылкой на неё.</p>
+      </div>
+      <div class="feature">
+        <h3>Подсветка во всех формах</h3>
+        <p>Сохраните «run», и Lexbox отметит ещё «running» и «ran». Наведите курсор на подсветку, чтобы увидеть перевод.</p>
+      </div>
+      <div class="feature">
+        <h3>Ваш словарь</h3>
+        <p>Поиск, правка и удаление слов, все сохранённые предложения. Резервная копия в JSON, восстановление и выгрузка в CSV.</p>
+      </div>
+      <div class="feature">
+        <h3>Полная приватность</h3>
+        <p>Ни аккаунта, ни аналитики, ни сетевых запросов. Слова хранятся в вашем браузере на этом устройстве.</p>
+      </div>
+    </div>
+
+    <h2 class="section-title">Как это работает</h2>
+    <ol class="steps">
+      <li><strong>Выделите незнакомое слово</strong>Нажмите «+» рядом с выделением, <kbd>Alt</kbd>+<kbd>S</kbd> или пункт в контекстном меню.</li>
+      <li><strong>Проверьте перевод и сохраните</strong>В Chrome 138+ он подставится сам. В первый раз Chrome может попросить скачать англо-русский языковой пакет.</li>
+      <li><strong>Читайте дальше</strong>Теперь слово мягко подсвечивается на каждой странице, где встречается. Забыли — наведите курсор.</li>
+    </ol>
+
+    <h2 class="section-title">Вопросы</h2>
+    <div class="faq">
+      <details>
+        <summary>Какой нужен Chrome?</summary>
+        <p>Любой свежий. Автоматический перевод работает в Chrome 138 и новее; в старых версиях перевод вводится вручную, всё остальное работает так же.</p>
+      </details>
+      <details>
+        <summary>Какие языки поддерживаются?</summary>
+        <p>Пока только с английского на русский. Интерфейс — на английском и русском.</p>
+      </details>
+      <details>
+        <summary>Что-то уходит в интернет?</summary>
+        <p>Нет. Расширение не делает сетевых запросов, а перевод выполняется на устройстве. Одна честная оговорка: подсветка работает через CSS Custom Highlight API браузера, поэтому скрипты самой страницы могут видеть, какие слова на ней подсвечены. Подробнее — в <a href="/lexbox/privacy/" hreflang="en">политике конфиденциальности</a> (на английском).</p>
+      </details>
+      <details>
+        <summary>Можно перенести словарь на другой компьютер?</summary>
+        <p>Да, через резервную копию в JSON: выгрузите на одном, загрузите на другом. Автоматической синхронизации нет.</p>
+      </details>
+      <details>
+        <summary>Где он не работает?</summary>
+        <p>Во встроенных фреймах, в PDF, на служебных страницах браузера и в Chrome Web Store.</p>
+      </details>
+    </div>
+
+    <div class="links">
+      <a href="https://github.com/1gory/lexbox" target="_blank" rel="noopener" data-goal="github_click" data-goal-params='{"project_name": "Lexbox", "lang": "ru"}'>
+        <div class="link-text"><strong>GitHub</strong><span>Исходный код и релизы</span></div>
+        <span class="link-arrow">›</span>
+      </a>
+      <a href="https://github.com/1gory/lexbox/releases" target="_blank" rel="noopener">
+        <div class="link-text"><strong>Релизы</strong><span>ZIP-архив для ручной установки</span></div>
+        <span class="link-arrow">›</span>
+      </a>
+      <a href="/lexbox/privacy/" hreflang="en">
+        <div class="link-text"><strong>Политика конфиденциальности</strong><span>Данные не собираются, всё остаётся на устройстве (текст на английском)</span></div>
+        <span class="link-arrow">›</span>
+      </a>
+      <a href="https://github.com/1gory/lexbox/blob/master/LICENSE" target="_blank" rel="noopener">
+        <div class="link-text"><strong>Лицензия MIT</strong><span>Открытый код · © Игорь Першин</span></div>
+        <span class="link-arrow">›</span>
+      </a>
+    </div>
+  </main>
+</div>
+
+<footer class="text-center py-4 mt-5 border-top">
+  <p class="mb-1"><span id="current-year"></span> © <a href="/ru/" class="text-reset">Игорь Першин</a></p>
+  <p class="text-muted small mb-0">Просто ещё один человек, который пытается выжить</p>
+</footer>
+
+<button class="btn btn-sm btn-outline-secondary position-fixed" style="top: 20px; right: 20px; z-index: 1000;" id="theme-toggle" aria-label="Сменить тему">🌓</button>
+
+<script src="/js/theme.js?v=1.0" defer></script>
+</body>
+</html>

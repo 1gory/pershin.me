@@ -430,3 +430,161 @@
     color: inherit;
     text-underline-offset: 2px;
 }
+
+/* ---------- Extension landings: long-form sections ---------- */
+
+/* Breadcrumb row with the language switch on the right */
+.crumb {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+}
+
+/* Keep the switch clear of the fixed theme toggle (top-right corner) */
+@media (max-width: 860px) {
+    .crumb .lang-switch {
+        margin-right: 52px;
+    }
+}
+
+.landing-wrap kbd {
+    font-family: 'SFMono-Regular', Consolas, monospace;
+    background: var(--bg-color);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 1px 6px;
+    font-size: 0.85em;
+    box-shadow: none;
+}
+
+.section-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin: 56px 0 6px;
+}
+
+.landing-lead {
+    font-size: 1.08rem;
+    line-height: 1.75;
+    margin: 16px 0 0;
+}
+
+.landing-lead p {
+    margin: 0 0 14px;
+}
+
+.section-title + .features,
+.section-title + .about-grid {
+    margin-top: 22px;
+}
+
+/* Numbered "how it works" steps */
+.steps {
+    list-style: none;
+    counter-reset: step;
+    padding: 0;
+    margin: 22px 0 0;
+    display: grid;
+    gap: 20px;
+}
+
+.steps li {
+    counter-increment: step;
+    position: relative;
+    padding-left: 50px;
+    color: var(--muted-color);
+    line-height: 1.65;
+    font-size: 0.95rem;
+}
+
+.steps li strong {
+    display: block;
+    color: var(--text-color);
+    font-size: 1.02rem;
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+
+.steps li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid var(--border-color);
+    background: var(--card-bg);
+    color: var(--text-color);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* FAQ — native <details>, no script */
+.faq {
+    margin: 22px 0 56px;
+    border-top: 1px solid var(--border-color);
+}
+
+.faq details {
+    border-bottom: 1px solid var(--border-color);
+    padding: 16px 0;
+}
+
+.faq summary {
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    font-weight: 600;
+}
+
+.faq summary::-webkit-details-marker {
+    display: none;
+}
+
+.faq summary::after {
+    content: "+";
+    color: var(--muted-color);
+    font-weight: 400;
+}
+
+.faq details[open] summary::after {
+    content: "−";
+}
+
+.faq details p {
+    margin: 10px 0 0;
+    color: var(--muted-color);
+    line-height: 1.65;
+    font-size: 0.95rem;
+}
+
+.landing-lead a,
+.steps a,
+.faq a {
+    color: inherit;
+    text-underline-offset: 2px;
+}
+
+.feature h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.faq code,
+.steps code {
+    font-family: 'SFMono-Regular', Consolas, monospace;
+    background: var(--card-bg);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-size: 0.88em;
+}

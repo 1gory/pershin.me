@@ -1,4 +1,19 @@
 document.addEventListener('DOMContentLoaded', function() {
+  // The Russian homepage (/ru/) sets <html lang="ru">; cards then use the *Ru fields
+  // from projects.json and fall back to English where a translation is missing.
+  const isRu = document.documentElement.lang === 'ru';
+  function localized(project, field) {
+    return (isRu && project[field + 'Ru']) || project[field];
+  }
+  function usersLabel(n) {
+    if (!isRu) return `${n.toLocaleString('en-US')} users`;
+    const mod10 = n % 10, mod100 = n % 100;
+    const word = (mod10 === 1 && mod100 !== 11) ? 'пользователь'
+      : (mod10 >= 2 && mod10 <= 4 && (mod100 < 12 || mod100 > 14)) ? 'пользователя'
+      : 'пользователей';
+    return `${n.toLocaleString('ru-RU')} ${word}`;
+  }
+
   // Universal goal tracking function
   function trackGoal(goalName, params = {}) {
     if (typeof ym !== 'undefined') {
@@ -40,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
       parts.push(`<span class="rating-star" aria-hidden="true">★</span> ${cs.rating.toFixed(1)}${reviews}`);
     }
     if (typeof cs.users === 'number') {
-      parts.push(`${cs.users.toLocaleString('en-US')} users`);
+      parts.push(usersLabel(cs.users));
     }
     if (cs.version) {
       const safeVersion = String(cs.version).replace(/[^\w.-]/g, '');
@@ -76,7 +91,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Projects loading
   const loadingIndicator = document.getElementById('loading-indicator');
 
-  fetch('./projects.json')
+  fetch('/projects.json')
     .then(response => {
       if (!response.ok) {
         throw new Error('Network response was not ok');
@@ -98,9 +113,10 @@ document.addEventListener('DOMContentLoaded', function() {
         // Fill card data — make the title link to the project homepage if set
         const titleEl = card.querySelector('.card-title');
         titleEl.textContent = '';
-        if (project.homepage) {
+        const homepage = localized(project, 'homepage');
+        if (homepage) {
           const titleLink = document.createElement('a');
-          titleLink.href = project.homepage;
+          titleLink.href = homepage;
           titleLink.target = '_blank';
           titleLink.rel = 'noopener';
           titleLink.className = 'card-title-link';
@@ -111,13 +127,13 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
           titleEl.textContent = project.name;
         }
-        card.querySelector('.card-text').textContent = project.description;
+        card.querySelector('.card-text').textContent = localized(project, 'description');
 
         // Optional status pill (e.g. "In development") — generic, any project may set it
         const statusEl = card.querySelector('.card-status');
         if (project.status) {
           statusEl.innerHTML = '<span class="dot"></span>';
-          statusEl.appendChild(document.createTextNode(project.status));
+          statusEl.appendChild(document.createTextNode(localized(project, 'status')));
           statusEl.style.display = '';
         }
 
@@ -134,9 +150,9 @@ document.addEventListener('DOMContentLoaded', function() {
           if (extId) {
             projectLink.textContent = 'Chrome Web Store';
           }
-        } else if (project.homepage) {
+        } else if (homepage) {
           // No store/external URL — fall back to the on-domain project page
-          projectLink.href = project.homepage;
+          projectLink.href = homepage;
           projectLink.setAttribute('data-goal', 'project_view_click');
           projectLink.setAttribute('data-goal-params', JSON.stringify({project_name: project.name}));
         } else {
@@ -153,9 +169,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Set project image — make it click through to the project, same as the title
         const img = card.querySelector('.card-img-top');
-        img.src = `./img/projects/${project.img}`;
+        img.src = `/img/projects/${project.img}`;
         img.alt = project.name;
-        const imageTarget = project.homepage || project.url;
+        const imageTarget = homepage || project.url;
         if (imageTarget) {
           const imgLink = document.createElement('a');
           imgLink.href = imageTarget;

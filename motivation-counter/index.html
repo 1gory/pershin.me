@@ -3,14 +3,19 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Motivation Counter — Chrome new-tab extension by Igor Pershin</title>
+  <title>Motivation Counter — your age and countdowns in every new tab | Igor Pershin</title>
   <meta name="description"
-        content="A Chrome extension that replaces your new tab with a real-time counter: watch your age tick up, count down to any date or to the end of the year, with a daily quote. No tracking.">
+        content="A free Chrome extension that turns the new tab into a live counter: your age to nine decimal places, a countdown to any date and time, or to the end of the year. Daily quote, six themes, no data collected.">
   <link rel="canonical" href="https://ipershin.me/motivation-counter/">
+  <link rel="alternate" hreflang="en" href="https://ipershin.me/motivation-counter/">
+  <link rel="alternate" hreflang="ru" href="https://ipershin.me/ru/motivation-counter/">
+  <link rel="alternate" hreflang="x-default" href="https://ipershin.me/motivation-counter/">
 
   <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="ru_RU">
   <meta property="og:title" content="Motivation Counter">
-  <meta property="og:description" content="Replace your new tab with a real-time counter — your age, a countdown to a date, or to the end of the year.">
+  <meta property="og:description" content="Every new tab shows how much time has passed, or how much is left: your age ticking up, or a countdown to the date that matters.">
   <meta property="og:url" content="https://ipershin.me/motivation-counter/">
   <meta property="og:image" content="https://ipershin.me/img/projects/motivation-counter.jpg">
   <meta name="twitter:card" content="summary_large_image">
@@ -37,7 +42,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet"></noscript>
   <link rel="stylesheet" href="/style.css?v=1.3">
-  <link rel="stylesheet" href="/landing.css?v=1.0">
+  <link rel="stylesheet" href="/landing.css?v=1.1">
 
   <!-- Yandex.Metrika counter -->
   <script type="text/javascript">
@@ -56,13 +61,24 @@
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": "Motivation Counter",
+    "description": "Every new tab shows how much time has passed, or how much is left: your age ticking up, or a countdown to the date that matters.",
+    "inLanguage": "en",
     "applicationCategory": "BrowserApplication",
     "operatingSystem": "Chrome",
     "url": "https://ipershin.me/motivation-counter/",
     "downloadUrl": "https://chromewebstore.google.com/detail/motivation-counter/jgebglhbeenjoehfkglemcfaimddnggl",
     "image": "https://ipershin.me/img/projects/motivation-counter.jpg",
-    "author": { "@type": "Person", "name": "Igor Pershin", "url": "https://ipershin.me/" },
-    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    "author": {
+      "@type": "Person",
+      "@id": "https://ipershin.me/#person",
+      "name": "Igor Pershin",
+      "url": "https://ipershin.me/"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
   }
   </script>
 </head>
@@ -70,80 +86,122 @@
 
 <div class="landing-wrap">
   <nav class="crumb" aria-label="Breadcrumb">
-    <a href="/" data-goal="landing_back_click" data-goal-params='{"project_name":"Motivation Counter"}'>← Igor Pershin</a>
+    <a href="/" data-goal="landing_back_click" data-goal-params='{"project_name": "Motivation Counter", "lang": "en"}'>← Igor Pershin</a>
+    <a class="lang-switch" href="/ru/motivation-counter/" hreflang="ru" lang="ru" data-goal="lang_switch_click" data-goal-params='{"project_name": "Motivation Counter", "lang": "en"}'>Русский</a>
   </nav>
 
   <header class="landing-header">
     <img class="logo" src="/motivation-counter/icon.png" alt="Motivation Counter icon" width="80" height="80">
     <h1>Motivation Counter</h1>
-    <p class="tagline">Replace your new tab with a real-time counter. Track your age, count down to a date, or to the end of the year — a quiet reminder that time is passing.</p>
-    <a class="cws-badge" href="https://chromewebstore.google.com/detail/motivation-counter/jgebglhbeenjoehfkglemcfaimddnggl" target="_blank" rel="noopener" data-goal="cws_install_click" data-goal-params='{"project_name":"Motivation Counter"}'>
+    <p class="tagline">Every new tab shows how much time has passed, or how much is left: your age ticking up in real time, or a countdown to the date that matters.</p>
+    <a class="cws-badge" href="https://chromewebstore.google.com/detail/motivation-counter/jgebglhbeenjoehfkglemcfaimddnggl" target="_blank" rel="noopener" data-goal="cws_install_click" data-goal-params='{"project_name": "Motivation Counter", "lang": "en"}'>
       <img src="/img/chrome-webstore-badge.svg" alt="Available in the Chrome Web Store" width="206" height="60">
     </a>
     <div class="hero-shot">
-      <img src="/img/projects/motivation-counter.jpg" alt="Motivation Counter new tab page" loading="lazy">
+      <img src="/img/projects/motivation-counter.jpg" alt="Motivation Counter new tab page with a live age counter and a daily quote" loading="lazy">
     </div>
   </header>
 
   <main>
-    <div class="features">
-      <div class="feature">
-        <div class="feature-icon">⏱</div>
-        <h2>Age counter</h2>
-        <p>Watch your age tick up in real time, down to the millisecond. A quiet reminder that time is passing.</p>
+    <h2 class="section-title">Time you can see</h2>
+    <div class="landing-lead">
+      <p>You open dozens of new tabs a day, and each one is a blank page you look at for a second. Motivation Counter puts a single number there: your age with the decimals running, or the time left until a deadline.</p>
+      <p>It doesn’t block sites, send notifications or keep score. It just makes time visible, which is often enough to close the feed and get back to what you opened the browser for.</p>
+    </div>
+
+    <h2 class="section-title">What people use it for</h2>
+    <div class="about-grid">
+      <div class="about-item">
+        <h3>A deadline that stays in view</h3>
+        <p>A launch, an exam, a trip. Set the date and, if it matters, the time: a deadline at 6:30 PM counts down to 6:30 PM, not to midnight.</p>
       </div>
-      <div class="feature">
-        <div class="feature-icon">📅</div>
-        <h2>Countdown modes</h2>
-        <p>Count down to the end of the year or to any date you choose — a deadline, a birthday, an event.</p>
+      <div class="about-item">
+        <h3>The year in perspective</h3>
+        <p>“Until end of year” shows how much of the year is left. A sober number in October, a push in December.</p>
       </div>
-      <div class="feature">
-        <div class="feature-icon">💬</div>
-        <h2>Daily quote</h2>
-        <p>A new motivational quote every day from a curated collection of 1500+. Toggle it off if you prefer silence.</p>
+      <div class="about-item">
+        <h3>A quiet memento mori</h3>
+        <p>Your age as 34.123456789 years, the last digits always moving. The idea goes back to Alex MacCaw’s 2013 extension; this is a fresh take with more modes.</p>
       </div>
-      <div class="feature">
-        <div class="feature-icon">🔍</div>
-        <h2>Optional search bar</h2>
-        <p>Search the web straight from your new tab with your choice of engine — in the same tab or a new one. Off by default.</p>
-      </div>
-      <div class="feature">
-        <div class="feature-icon">🎨</div>
-        <h2>Make it yours</h2>
-        <p>Six color palettes (three light, three dark) or follow the system theme, three fonts, and three counter sizes.</p>
-      </div>
-      <div class="feature">
-        <div class="feature-icon">🔢</div>
-        <h2>Tabs counter</h2>
-        <p>See how many new tabs you have opened with the extension — a quiet tally that shows the time adding up.</p>
+      <div class="about-item">
+        <h3>A calmer new tab</h3>
+        <p>No news feed, no grid of shortcuts, no ads. A number, an optional quote and an optional search bar.</p>
       </div>
     </div>
 
+    <h2 class="section-title">Features</h2>
+    <div class="features">
+      <div class="feature">
+        <h3>Three counter modes</h3>
+        <p>Age counter, until the end of the year, or until any date you choose. Everything updates in real time.</p>
+      </div>
+      <div class="feature">
+        <h3>Down to the time of day</h3>
+        <p>Turn on “Set time” for the countdown target or your date of birth when the hour matters. Leave it off and dates work as usual.</p>
+      </div>
+      <div class="feature">
+        <h3>A quote a day</h3>
+        <p>A new quote each day from a collection of over 1,500. It stays the same all day, changes at your local midnight, and can be turned off.</p>
+      </div>
+      <div class="feature">
+        <h3>Optional search bar</h3>
+        <p>Search from the new tab with Google, DuckDuckGo, Bing, Yandex, Yahoo or Brave, in the same tab or a new one. Off by default.</p>
+      </div>
+      <div class="feature">
+        <h3>Make it yours</h3>
+        <p>Six palettes (three light, three dark) or follow the system theme, Sans, Serif or Mono type, and three counter sizes.</p>
+      </div>
+      <div class="feature">
+        <h3>A small tally</h3>
+        <p>Settings show how many new tabs you have opened with the extension. Click the version number next to it to see what changed in recent releases.</p>
+      </div>
+    </div>
+
+    <h2 class="section-title">How it works</h2>
+    <ol class="steps">
+      <li><strong>Install it from the Chrome Web Store</strong>If Chrome asks whether to keep the new tab page it changed, choose to keep it.</li>
+      <li><strong>Open a new tab and click the gear</strong>It sits in the bottom-right corner and opens the settings.</li>
+      <li><strong>Pick a mode and enter a date</strong>Your date of birth for the age counter, or the target date for a countdown. The counter starts right away.</li>
+    </ol>
+
+    <h2 class="section-title">Questions</h2>
+    <div class="faq">
+      <details>
+        <summary>Does my date of birth go anywhere?</summary>
+        <p>No. It is stored in your browser’s local storage on this device. The extension makes no network requests, needs no special permissions and works offline. See the <a href="/motivation-counter/privacy/">privacy policy</a>.</p>
+      </details>
+      <details>
+        <summary>How do I get the normal new tab back?</summary>
+        <p>Turn the extension off or remove it on <code>chrome://extensions</code>.</p>
+      </details>
+      <details>
+        <summary>Does the search bar track what I search?</summary>
+        <p>No. It simply opens the search engine you picked with your query; the extension does not see or relay the traffic.</p>
+      </details>
+      <details>
+        <summary>Is it free?</summary>
+        <p>Yes, free and open source under the MIT license. The code is on <a href="https://github.com/1gory/motivation-age-counter-extension" target="_blank" rel="noopener">GitHub</a>.</p>
+      </details>
+    </div>
+
     <div class="links">
-      <a href="https://chromewebstore.google.com/detail/motivation-counter/jgebglhbeenjoehfkglemcfaimddnggl" target="_blank" rel="noopener" data-goal="cws_install_click" data-goal-params='{"project_name":"Motivation Counter"}'>
-        <div class="link-icon">🧩</div>
+      <a href="https://chromewebstore.google.com/detail/motivation-counter/jgebglhbeenjoehfkglemcfaimddnggl" target="_blank" rel="noopener" data-goal="cws_install_click" data-goal-params='{"project_name": "Motivation Counter", "lang": "en"}'>
         <div class="link-text"><strong>Chrome Web Store</strong><span>Install the extension</span></div>
         <span class="link-arrow">›</span>
       </a>
-      <a href="https://github.com/1gory/motivation-age-counter-extension" target="_blank" rel="noopener" data-goal="github_click" data-goal-params='{"project_name":"Motivation Counter"}'>
-        <div class="link-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577v-2.165c-3.338.726-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.73.083-.73 1.205.085 1.84 1.237 1.84 1.237 1.07 1.835 2.809 1.305 3.495.998.108-.776.418-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.468-2.38 1.235-3.22-.123-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.3 1.23a11.52 11.52 0 0 1 3-.404c1.02.005 2.047.138 3 .404 2.29-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.12 3.176.77.84 1.232 1.91 1.232 3.22 0 4.61-2.807 5.625-5.48 5.92.43.372.823 1.102.823 2.222v3.293c0 .322.218.694.825.576C20.565 21.796 24 17.298 24 12c0-6.63-5.37-12-12-12z"/></svg>
-        </div>
+      <a href="https://github.com/1gory/motivation-age-counter-extension" target="_blank" rel="noopener" data-goal="github_click" data-goal-params='{"project_name": "Motivation Counter", "lang": "en"}'>
         <div class="link-text"><strong>GitHub</strong><span>Source code and releases</span></div>
         <span class="link-arrow">›</span>
       </a>
       <a href="https://github.com/1gory/motivation-age-counter-extension/releases" target="_blank" rel="noopener">
-        <div class="link-icon">📦</div>
         <div class="link-text"><strong>Releases</strong><span>Download a ZIP for manual installation</span></div>
         <span class="link-arrow">›</span>
       </a>
       <a href="/motivation-counter/privacy/">
-        <div class="link-icon">🔒</div>
         <div class="link-text"><strong>Privacy Policy</strong><span>No data collected — everything stays on your device</span></div>
         <span class="link-arrow">›</span>
       </a>
       <a href="https://github.com/1gory/motivation-age-counter-extension/blob/main/LICENSE" target="_blank" rel="noopener">
-        <div class="link-icon">📄</div>
         <div class="link-text"><strong>MIT License</strong><span>Open source · © Igor Pershin</span></div>
         <span class="link-arrow">›</span>
       </a>
