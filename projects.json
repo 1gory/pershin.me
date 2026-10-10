@@ -44,6 +44,7 @@
   {
     "name": "Lexbox",
     "homepage": "https://ipershin.me/lexbox/",
+    "url": "https://chromewebstore.google.com/detail/lexbox/docpkegnbgaadchkoafmlmkphhhkhbfa",
     "img": "lexbox.jpg",
     "technologies": [
       "Chrome Extension",
