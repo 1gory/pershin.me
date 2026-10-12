@@ -12,9 +12,9 @@ grow or appear-and-stay), so a flaky shields.io response can't make a field
 disappear. If projects.json can't be read or no IDs are found, it aborts without
 touching the existing stats.json.
 
-Kept deliberately to Python 3.5 syntax (no f-strings / timespec) because the
-server's system interpreter is 3.5.3. Canonical copy lives in the repo at
-ops/update-stats.py; deployed to /opt/ipershin-stats/update-stats.py.
+Runs on the server's system python3 (3.13 on Debian 13), standard library only.
+Canonical copy lives in the repo at ops/update-stats.py; deployed by hand to
+/opt/ipershin-stats/update-stats.py (the site deploy excludes ops/).
 """
 import json
 import os
@@ -48,7 +48,6 @@ def fetch_value(ep, ext_id):
         with urllib.request.urlopen(req, timeout=TIMEOUT) as resp:
             if resp.getcode() != 200:
                 return None
-            # Python 3.5's json.loads needs str, and urllib yields bytes.
             body = resp.read().decode("utf-8")
             return json.loads(body).get("value")
     except Exception as exc:  # any failure just means "no value this run"

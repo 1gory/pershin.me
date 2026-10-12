@@ -28,9 +28,12 @@ jobs:
           SSH_HOST: ${{ secrets.SSH_HOST }}
           SSH_PORT: ${{ secrets.SSH_PORT }}
 
+      # --delete removes files dropped from the repo; stats.json is generated on
+      # the server by ops/update-stats.py, so it is protected from deletion.
       - name: Deploy with rsync
         run: |
-          rsync -avz \
+          rsync -avz --delete \
+            --filter='P stats.json' \
             -e "ssh -i ~/.ssh/deploy_key -p ${SSH_PORT:-22}" \
             --exclude='.git/' \
             --exclude='.github/' \
