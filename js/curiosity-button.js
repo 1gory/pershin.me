@@ -32,6 +32,9 @@
         curiosityMessage.style.transform = 'translateY(0)';
       }, 50);
 
+      if (typeof gtag === 'function') {
+        try { gtag('event', 'curiosity_button_click'); } catch (error) {}
+      }
       if (typeof ym !== 'undefined' && typeof ym === 'function') {
         try {
           ym(65479363, 'reachGoal', 'curiosity_button_click');

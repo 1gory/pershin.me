@@ -2,6 +2,9 @@
 // goal tracking, footer year, and the light/dark theme toggle.
 document.addEventListener('DOMContentLoaded', function () {
   function trackGoal(goalName, params = {}) {
+    if (typeof gtag === 'function') {
+      try { gtag('event', goalName, params); } catch (e) {}
+    }
     if (typeof ym !== 'undefined') {
       try { ym(65479363, 'reachGoal', goalName, params); } catch (e) {}
     }

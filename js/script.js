@@ -14,8 +14,11 @@ document.addEventListener('DOMContentLoaded', function() {
     return `${n.toLocaleString('ru-RU')} ${word}`;
   }
 
-  // Universal goal tracking function
+  // Universal goal tracking function: Yandex.Metrika goal + Google Analytics event
   function trackGoal(goalName, params = {}) {
+    if (typeof gtag === 'function') {
+      try { gtag('event', goalName, params); } catch (error) {}
+    }
     if (typeof ym !== 'undefined') {
       try {
         ym(65479363, 'reachGoal', goalName, params);
